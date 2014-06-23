@@ -1,0 +1,11 @@
+<html>
+<body>
+<b>Geoscopio_WMS - Ortofoto</b> &egrave; un servizio WEB di tipo OGC-WMS. 
+Per il suo utilizzo &egrave; necessario impiegare un client GIS e non
+funziona direttamente con un browser-web.<br>
+La stringa da usare per la connessione è la seguente:<br>
+<br>
+http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc
+
+</body>
+</html>

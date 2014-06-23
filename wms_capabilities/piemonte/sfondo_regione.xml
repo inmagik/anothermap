@@ -1,0 +1,562 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<WMS_Capabilities version="1.3.0"  xmlns="http://www.opengis.net/wms"   xmlns:sld="http://www.opengis.net/sld"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"   xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd  http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd  http://mapserver.gis.umn.edu/mapserver http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?service=WMS&amp;version=1.3.0&amp;request=GetSchemaExtension">
+
+<!-- MapServer version 6.2.0 OUTPUT=GIF OUTPUT=PNG OUTPUT=JPEG OUTPUT=KML SUPPORTS=PROJ SUPPORTS=GD SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=CAIRO SUPPORTS=OPENGL SUPPORTS=ICONV SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=FASTCGI SUPPORTS=THREADS SUPPORTS=GEOS SUPPORTS=POINT_Z_M INPUT=JPEG INPUT=POSTGIS INPUT=ORACLESPATIAL INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE -->
+
+<Service>
+  <Name>WMS</Name>
+  <Title>WMS sfondo Regione Piemonte</Title>
+  <Abstract>WMS sfondo Regione Piemonte</Abstract>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/>
+  <ContactInformation>
+  </ContactInformation>
+  <MaxWidth>2048</MaxWidth>
+  <MaxHeight>2048</MaxHeight>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/jpeg</Format>
+      <Format>image/png</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>application/x-pdf</Format>
+      <Format>image/svg+xml</Format>
+      <Format>image/tiff</Format>
+      <Format>application/vnd.google-earth.kml+xml</Format>
+      <Format>application/vnd.google-earth.kmz</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/plain</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+    <sld:DescribeLayer>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:DescribeLayer>
+    <sld:GetLegendGraphic>
+      <Format>image/jpeg</Format>
+      <Format>image/png</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=8bit</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </sld:GetLegendGraphic>
+    <ms:GetStyles>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?"/></Post>
+        </HTTP>
+      </DCPType>
+    </ms:GetStyles>
+  </Request>
+  <Exception>
+    <Format>XML</Format>
+    <Format>INIMAGE</Format>
+    <Format>BLANK</Format>
+  </Exception>
+  <sld:UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="1" RemoteWFS="0" InlineFeature="0" RemoteWCS="0"/>
+  <Layer>
+    <Name>CatalogoTMSRegione</Name>
+    <Title>WMS sfondo Regione Piemonte</Title>
+    <Abstract>WMS sfondo Regione Piemonte</Abstract>
+    <CRS>EPSG:32632</CRS>
+    <CRS>EPSG:32633</CRS>
+    <CRS>EPSG:23032</CRS>
+    <CRS>EPSG:3064</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:4258</CRS>
+    <CRS>EPSG:3035</CRS>
+    <CRS>EPSG:3034</CRS>
+    <CRS>EPSG:3044</CRS>
+    <CRS>EPSG:3045</CRS>
+    <CRS>EPSG:3004</CRS>
+    <CRS>EPSG:3003</CRS>
+    <CRS>EPSG:23033</CRS>
+    <CRS>EPSG:3065</CRS>
+    <CRS>EPSG:32634</CRS>
+    <CRS>EPSG:4806</CRS>
+    <CRS>EPSG:4265</CRS>
+    <CRS>EPSG:4230</CRS>
+    <CRS>EPSG:4670</CRS>
+    <CRS>EPSG:4267</CRS>
+    <CRS>EPSG:4269</CRS>
+    <CRS>EPSG:900913</CRS>
+    <CRS>EPSG:25832</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>6.5699</westBoundLongitude>
+        <eastBoundLongitude>9.21346</eastBoundLongitude>
+        <southBoundLatitude>44.0465</southBoundLatitude>
+        <northBoundLatitude>46.4644</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:32632"
+                minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+    <Layer>
+      <Name>CatalogoTMSRegione</Name>
+<!-- WARNING: Mandatory metadata '..._GROUP_TITLE' was missing in this context. -->
+      <Title>CatalogoTMSRegione</Title>
+      <Abstract>CatalogoTMSRegione</Abstract>
+    <Style>
+       <Name>default</Name>
+       <Title>default</Title>
+       <LegendURL width="35" height="5">
+          <Format>image/png</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://geomap.reteunitaria.piemonte.it/ws/taims/rp-01/taimssfwms/CatalogoSfondoRegione?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=CatalogoTMSRegione&amp;format=image/png&amp;STYLE=default"/>
+       </LegendURL>
+    </Style>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello7</Name>
+        <Title>CatalogoTMSRegione-Livello7</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>1.74848e+06</MinScaleDenominator>
+        <MaxScaleDenominator>1e+11</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello8</Name>
+        <Title>CatalogoTMSRegione-Livello8</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>874241</MinScaleDenominator>
+        <MaxScaleDenominator>1.74848e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello9</Name>
+        <Title>CatalogoTMSRegione-Livello9</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>437121</MinScaleDenominator>
+        <MaxScaleDenominator>874240</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello10</Name>
+        <Title>CatalogoTMSRegione-Livello10</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>218561</MinScaleDenominator>
+        <MaxScaleDenominator>437120</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello11</Name>
+        <Title>CatalogoTMSRegione-Livello11</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>109281</MinScaleDenominator>
+        <MaxScaleDenominator>218560</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello12</Name>
+        <Title>CatalogoTMSRegione-Livello12</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>54641</MinScaleDenominator>
+        <MaxScaleDenominator>109280</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello13</Name>
+        <Title>CatalogoTMSRegione-Livello13</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>27321</MinScaleDenominator>
+        <MaxScaleDenominator>54640</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello14</Name>
+        <Title>CatalogoTMSRegione-Livello14</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>13661</MinScaleDenominator>
+        <MaxScaleDenominator>27320</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello15</Name>
+        <Title>CatalogoTMSRegione-Livello15</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>6831</MinScaleDenominator>
+        <MaxScaleDenominator>13660</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello16</Name>
+        <Title>CatalogoTMSRegione-Livello16</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>3420</MinScaleDenominator>
+        <MaxScaleDenominator>6830</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>CatalogoTMSRegione-Livello17</Name>
+        <Title>CatalogoTMSRegione-Livello17</Title>
+        <CRS>EPSG:32632</CRS>
+        <CRS>EPSG:32633</CRS>
+        <CRS>EPSG:23032</CRS>
+        <CRS>EPSG:3064</CRS>
+        <CRS>EPSG:4326</CRS>
+        <CRS>EPSG:4258</CRS>
+        <CRS>EPSG:3035</CRS>
+        <CRS>EPSG:3034</CRS>
+        <CRS>EPSG:3044</CRS>
+        <CRS>EPSG:3045</CRS>
+        <CRS>EPSG:3004</CRS>
+        <CRS>EPSG:3003</CRS>
+        <CRS>EPSG:23033</CRS>
+        <CRS>EPSG:3065</CRS>
+        <CRS>EPSG:32634</CRS>
+        <CRS>EPSG:4806</CRS>
+        <CRS>EPSG:4265</CRS>
+        <CRS>EPSG:4230</CRS>
+        <CRS>EPSG:4670</CRS>
+        <CRS>EPSG:4267</CRS>
+        <CRS>EPSG:4269</CRS>
+        <CRS>EPSG:900913</CRS>
+        <CRS>EPSG:25832</CRS>
+        <CRS>EPSG:3857</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>6.5699</westBoundLongitude>
+            <eastBoundLongitude>9.21346</eastBoundLongitude>
+            <southBoundLatitude>44.0465</southBoundLatitude>
+            <northBoundLatitude>46.4644</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:32632"
+                    minx="313327" miny="4.87968e+06" maxx="516390" maxy="5.14565e+06" />
+        <MinScaleDenominator>100</MinScaleDenominator>
+        <MaxScaleDenominator>3419</MaxScaleDenominator>
+      </Layer>
+    </Layer>
+  </Layer>
+</Capability>
+</WMS_Capabilities>

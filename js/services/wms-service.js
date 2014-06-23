@@ -40,11 +40,9 @@
 
                 _.each(serviceLayers, function(item){
                     var cfg = svc.createLayerConfigFromWMS(item, serviceInfo, version);
-                    console.log("loo", cfg)
                     if(cfg){
                         out.push(cfg);    
                     }
-                    
                 });
                 d.resolve({data:out, item:url, serviceInfo:serviceInfo});
             });
@@ -55,7 +53,6 @@
 
 
         svc.createLayerConfigFromWMS = function(layerInfo, serviceInfo, version){
-            console.log("see", serviceInfo)
             if(!layerInfo.Name){
                 console.error("No name, cannot create wms config", layerInfo);
                 return null;
@@ -71,8 +68,9 @@
             }
 
             if(!crsFound){
-                console.error("no crs found for wms layer def", layerInfo);
-                return;
+                console.error("no crs found for wms layer def. assuming wgs84", layerInfo);
+                crsFound = "EPSG:4326";
+                //return;
             }
 
             var url = serviceInfo.OnlineResource;

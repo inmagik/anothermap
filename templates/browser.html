@@ -9,19 +9,48 @@
     
     <ion-content class="has-header">
       <div class="list slideright" ng-show="!browserStatus.currentService" style="z-index:10">
-        
+        <div ng-repeat="groupName in mapServicesOrder">
         <div class="item item-divider">
-          OpenStreetMap Based Layers
+          {{mapServicesData[groupName].title}}
         </div>
         
-        <a href="#" class="item"  ng-click="toService('osmbase', 'osm')">
-          OpenStreetMap Layers
+        <a href="#" class="item" ng-repeat="svc in mapServicesData[groupName].services" ng-click="toService(svc)">
+          {{svc.title}}
           <p>
-            Some layers from the OpenstreetMap project
+            {{svc.abstract}}
           </p>
         </a>
+        </div>
 
 
+
+        
+      
+      </div>
+
+      <div class="list slideright" ng-show="browserStatus.currentService" style="z-index:11">
+        <div class="item item-divider">
+          Layers
+        </div>
+        <div class="item padding" ng-repeat="item in currentLayers" ng-click="">
+          <h3>{{item.name}}</h3>
+          <div>
+            {{item.abstract}}
+          </div>
+          <p style="float:right;">
+            <button class="button button-positive icon ion-plus-circled" ng-click="addLayer(item)"
+            ng-disabled="layerInMap(item.uid)"></button>
+            <button class="button button-assertive icon ion-minus-circled" ng-click="removeLayer(item)"
+            ng-disabled="!layerInMap(item.uid)"></button>
+          </p>
+
+        </div>
+      </div>
+
+
+
+
+    <!--
         <div class="item item-divider">
           WMS Layers
         </div>
@@ -52,6 +81,8 @@
         </div>
       
       </div>
+
+    -->
      
     </ion-content>
 

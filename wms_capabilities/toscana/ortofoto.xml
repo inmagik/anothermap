@@ -1,0 +1,1694 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<WMS_Capabilities version="1.3.0"  xmlns="http://www.opengis.net/wms"   xmlns:sld="http://www.opengis.net/sld"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"   xmlns:inspire_common="http://inspire.ec.europa.eu/schemas/common/1.0"   xmlns:inspire_vs="http://inspire.ec.europa.eu/schemas/inspire_vs/1.0"   xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd  http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd  http://inspire.ec.europa.eu/schemas/inspire_vs/1.0  http://inspire.ec.europa.eu/schemas/inspire_vs/1.0/inspire_vs.xsd http://mapserver.gis.umn.edu/mapserver http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;service=WMS&amp;version=1.3.0&amp;request=GetSchemaExtension">
+
+<!-- MapServer version 6.5-dev OUTPUT=PNG OUTPUT=JPEG OUTPUT=KML SUPPORTS=PROJ SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=CAIRO SUPPORTS=SVG_SYMBOLS SUPPORTS=RSVG SUPPORTS=ICONV SUPPORTS=FRIBIDI SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=GEOS SUPPORTS=POINT_Z_M INPUT=JPEG INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE -->
+
+<Service>
+  <Name>WMS</Name>
+  <Title>Geoscopio_wms OFC</Title>
+  <Abstract>Servizio OGC di tipo WMS fornito da Regione Toscana (Sistema Informativo Territoriale ed Ambientale) dedicato specificamente alla consultazione delle ortofoto mediante clients WMS. I datasets disponibili sono ripartiti per anno di volo. Le annualita&#39; disponibili possono non coprire interamente il territorio regionale, per conoscere le zone coperte sono disponibili opportuni strati vettoriali denominati &#39;quadri di unione&#39;. Le ortofoto possono essere a livelli di grigio o a colori. Il livello di dettaglio puo&#39; essere a scala 1:10.000 oppure a scala 1:2.000. Per obblighi di licenza gli strati delle ortofoto sono visualizzabili solo in abbinamento ai disclaimer dei rispettivi proprietari del dato.</Abstract>
+  <KeywordList>
+      <Keyword>ortofotocarta</Keyword>
+      <Keyword>foto</Keyword>
+      <Keyword vocabulary="ISO">infoMapAccessService</Keyword>
+  </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;"/>
+  <ContactInformation>
+    <ContactPersonPrimary>
+      <ContactPerson>Sistema Informativo Territoriale ed Ambientale</ContactPerson>
+      <ContactOrganization>Regione Toscana - Direzione Generale Governo del territorio</ContactOrganization>
+    </ContactPersonPrimary>
+      <ContactPosition>custodian</ContactPosition>
+    <ContactAddress>
+        <AddressType>postal</AddressType>
+        <Address>Via di Novoli, 26</Address>
+        <City>Firenze</City>
+        <StateOrProvince>Regione Toscana</StateOrProvince>
+        <PostCode>50127</PostCode>
+        <Country>English</Country>
+    </ContactAddress>
+  <ContactElectronicMailAddress>servizio.geografico@regione.toscana.it</ContactElectronicMailAddress>
+  </ContactInformation>
+  <Fees>none</Fees>
+  <AccessConstraints>none</AccessConstraints>
+  <LayerLimit>6</LayerLimit>
+  <MaxWidth>5000</MaxWidth>
+  <MaxHeight>5000</MaxHeight>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/png</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>image/jpeg</Format>
+      <Format>application/x-pdf</Format>
+      <Format>image/svg+xml</Format>
+      <Format>image/tiff</Format>
+      <Format>application/vnd.google-earth.kml+xml</Format>
+      <Format>application/vnd.google-earth.kmz</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/xml</Format>
+      <Format>text/gml</Format>
+      <Format>text/html</Format>
+      <Format>text/plain</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+  </Request>
+  <Exception>
+    <Format>XML</Format>
+    <Format>INIMAGE</Format>
+    <Format>BLANK</Format>
+  </Exception>
+  <inspire_vs:ExtendedCapabilities>
+    <inspire_common:ResourceLocator>
+      <inspire_common:URL>http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;SERVICE=WMS&amp;request=getcapabilities</inspire_common:URL>
+    </inspire_common:ResourceLocator>
+    <inspire_common:ResourceType>service</inspire_common:ResourceType>
+    <inspire_common:TemporalReference>
+      <inspire_common:DateOfLastRevision>2012-07-18</inspire_common:DateOfLastRevision>
+    </inspire_common:TemporalReference>
+    <inspire_common:Conformity>
+      <inspire_common:Specification>
+        <inspire_common:Title>-</inspire_common:Title>
+        <inspire_common:DateOfLastRevision>2012-07-18</inspire_common:DateOfLastRevision>
+      </inspire_common:Specification>
+      <inspire_common:Degree>notEvaluated</inspire_common:Degree>
+    </inspire_common:Conformity>
+    <inspire_common:MetadataPointOfContact>
+      <inspire_common:OrganisationName>Regione Toscana - Sistema Informativo Territoriale ed Ambientale</inspire_common:OrganisationName>
+      <inspire_common:EmailAddress>servizio.geografico@regione.toscana.it</inspire_common:EmailAddress>
+    </inspire_common:MetadataPointOfContact>
+      <inspire_common:MetadataDate>2012-07-18</inspire_common:MetadataDate>
+    <inspire_common:SpatialDataServiceType>view</inspire_common:SpatialDataServiceType>
+    <inspire_common:MandatoryKeyword>
+      <inspire_common:KeywordValue>infoMapAccessService</inspire_common:KeywordValue>
+    </inspire_common:MandatoryKeyword>
+    <inspire_common:SupportedLanguages>
+      <inspire_common:DefaultLanguage><inspire_common:Language>ita</inspire_common:Language></inspire_common:DefaultLanguage>
+      <inspire_common:SupportedLanguage><inspire_common:Language>eng</inspire_common:Language></inspire_common:SupportedLanguage>
+    </inspire_common:SupportedLanguages>
+    <inspire_common:ResponseLanguage><inspire_common:Language>ita</inspire_common:Language></inspire_common:ResponseLanguage>
+  </inspire_vs:ExtendedCapabilities>
+  <Layer>
+    <Name>rt_ofc</Name>
+    <Title>Geoscopio_wms OFC</Title>
+    <Abstract>Servizio OGC di tipo WMS fornito da Regione Toscana (Sistema Informativo Territoriale ed Ambientale) dedicato specificamente alla consultazione delle ortofoto mediante clients WMS. I datasets disponibili sono ripartiti per anno di volo. Le annualita&#39; disponibili possono non coprire interamente il territorio regionale, per conoscere le zone coperte sono disponibili opportuni strati vettoriali denominati &#39;quadri di unione&#39;. Le ortofoto possono essere a livelli di grigio o a colori. Il livello di dettaglio puo&#39; essere a scala 1:10.000 oppure a scala 1:2.000. Per obblighi di licenza gli strati delle ortofoto sono visualizzabili solo in abbinamento ai disclaimer dei rispettivi proprietari del dato.</Abstract>
+    <KeywordList>
+        <Keyword>ortofoto</Keyword>
+        <Keyword>foto</Keyword>
+    </KeywordList>
+    <CRS>EPSG:25832</CRS>
+    <CRS>EPSG:3003</CRS>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>9.54974</westBoundLongitude>
+        <eastBoundLongitude>12.4747</eastBoundLongitude>
+        <southBoundLatitude>42.1617</southBoundLatitude>
+        <northBoundLatitude>44.5034</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:25832"
+                minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+    <Attribution>
+        <LogoURL width="160" height="70">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it:80/wmsraster/immagini/logo_geoscopio_wms.png"/>
+          </LogoURL>
+    </Attribution>
+    <Style>
+       <Name>default</Name>
+       <Title>default</Title>
+       <LegendURL width="148" height="628">
+          <Format>image/png</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc&amp;format=image/png&amp;STYLE=default"/>
+       </LegendURL>
+    </Style>
+    <MinScaleDenominator>1</MinScaleDenominator>
+    <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k54</Name>
+        <Title>OFC 1954 (volo GAI)</Title>
+        <Abstract>Ortofotocarta anno 1954 (volo GAI) di proprieta&#39; RT-IGM. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura tutta Toscana. Livelli di grigio</Abstract>
+        <KeywordList>
+            <Keyword>toscana</Keyword>
+            <Keyword>ortofotocarta</Keyword>
+        </KeywordList>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k54.qu</Name>
+        <Title>OFC 1954 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k54.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k78</Name>
+        <Title>OFC 1978</Title>
+        <Abstract>Ortofotocarta 1978 di proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura tutta Toscana salvo piccole porzioni. Livelli di grigio</Abstract>
+        <KeywordList>
+            <Keyword>toscana</Keyword>
+            <Keyword>ortofotocarta</Keyword>
+        </KeywordList>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k78.qu</Name>
+        <Title>OFC 1978 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k78.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k88</Name>
+        <Title>OFC 1988</Title>
+        <Abstract>Ortofotocarta 1988 di proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura tutta Toscana salvo piccole porzioni. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k88.qu</Name>
+        <Title>OFC 1988 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k88.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k96</Name>
+        <Title>OFC 1996</Title>
+        <Abstract>Ortofotocarta 1996 di proprieta&#39; AIMA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura tutta Toscana. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k96.qu</Name>
+        <Title>OFC 1996 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k96.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k99</Name>
+        <Title>OFC 1999</Title>
+        <Abstract>Ortofotocarta 1999 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k99.qu</Name>
+        <Title>OFC 1999 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k99.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k00</Name>
+        <Title>OFC 2000</Title>
+        <Abstract>Ortofotocarta anno 2000 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k00.qu</Name>
+        <Title>OFC 2000 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k00.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k01</Name>
+        <Title>OFC 2001</Title>
+        <Abstract>Ortofotocarta anno 2001 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k01.qu</Name>
+        <Title>OFC 2001 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k01.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k02</Name>
+        <Title>OFC 2002</Title>
+        <Abstract>Ortofotocarta anno 2002 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k02.qu</Name>
+        <Title>OFC 2002 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k02.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k03</Name>
+        <Title>OFC 2003</Title>
+        <Abstract>Ortofotocarta anno 2003 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k03.qu</Name>
+        <Title>OFC 2003 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k03.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k04</Name>
+        <Title>OFC 2004</Title>
+        <Abstract>Ortofotocarta anno 2004 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k04.qu</Name>
+        <Title>OFC 2004 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k04.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k05</Name>
+        <Title>OFC 2005</Title>
+        <Abstract>Ortofotocarta anno 2005 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k05.qu</Name>
+        <Title>OFC 2005 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k05.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k06</Name>
+        <Title>OFC 2006</Title>
+        <Abstract>Ortofotocarta anno 2006 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. Livelli di grigio</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k06.qu</Name>
+        <Title>OFC 2006 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k06.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k0304</Name>
+        <Title>OFC 2003-2004 col</Title>
+        <Abstract>Ortofotocarta anni 2003-2004 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k0304.qu</Name>
+        <Title>OFC 2003-2004 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="148" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k0304.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k07</Name>
+        <Title>OFC 2007 col</Title>
+        <Abstract>Ortofotocarta anno 2007 di proprieta&#39; CGR. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k07.qu</Name>
+        <Title>OFC 2007 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k07.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k08</Name>
+        <Title>OFC 2008 col</Title>
+        <Abstract>Ortofotocarta anno 2008 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k08.qu</Name>
+        <Title>OFC 2008 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k08.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k09</Name>
+        <Title>OFC 2009 col</Title>
+        <Abstract>Ortofotocarta anno 2009 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura parziale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k09.qu</Name>
+        <Title>OFC 2009 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k09.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10</Name>
+        <Title>OFC 2010 col</Title>
+        <Abstract>Ortofotocarta anno 2010 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10.qu</Name>
+        <Title>OFC 2010 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k10.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10.4R1G2B</Name>
+        <Title>OFC 2010 col - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2010 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10.4R2G3B</Name>
+        <Title>OFC 2010 col - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2010 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro)</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10.1R4G2B</Name>
+        <Title>OFC 2010 col - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2010 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 1R-4G-2B Falsi colori</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k10.grey.rt</Name>
+        <Title>OFC 2010 enhanced grey</Title>
+        <Abstract>Ortofotocarta anno 2010 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Livello di grigio con paletta schiarita</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13</Name>
+        <Title>OFC 2013 col</Title>
+        <Abstract>Ortofotocarta anno 2013 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. 32 bit di colore. I voli da cui deriva l&#39; ortofoto vanno da Giugno 2013 a Luglio 2103.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13.qu</Name>
+        <Title>OFC 2013 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.55283e+06" miny="4.67379e+06" maxx="1.77567e+06" maxy="4.92816e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1676" miny="9.63972" maxx="44.504" maxy="12.4645" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.07309e+06" miny="5.18612e+06" maxx="1.38754e+06" maxy="5.54378e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.10k13.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13.4R1G2B</Name>
+        <Title>OFC 2013 col - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2013 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione. I voli da cui deriva l&#39; ortofoto vanno da Giugno 2013 a Luglio 2103.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13.4R2G3B</Name>
+        <Title>OFC 2013 col - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2013 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro). I voli da cui deriva l&#39; ortofoto vanno da Giugno 2013 a Luglio 2103.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13.1R4G2B</Name>
+        <Title>OFC 2013 col - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2013 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Dato originale a 32 bit. Riproduzione in falsi colori 1R-4G-2B Falsi colori. I voli da cui deriva l&#39; ortofoto vanno da Giugno 2013 a Luglio 2103.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.10k13.grey.rt</Name>
+        <Title>OFC 2013 enhanced grey</Title>
+        <Abstract>Ortofotocarta anno 2013 di proprieta&#39; AGEA. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:10000. Copertura totale del territorio. Livello di grigio con paletta schiarita. I voli da cui deriva l&#39; ortofoto vanno da Giugno 2013 a Luglio 2103.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.63972</westBoundLongitude>
+            <eastBoundLongitude>12.4645</eastBoundLongitude>
+            <southBoundLatitude>42.1676</southBoundLatitude>
+            <northBoundLatitude>44.504</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="552802" miny="4.67378e+06" maxx="775640" maxy="4.92807e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>128100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k09</Name>
+        <Title>OFC 2009 2k col</Title>
+        <Abstract>Ortofotocarta anno 2009 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura parziale del territorio. 32 bit di colore</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>26100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k09.qu</Name>
+        <Title>OFC 2009 1:2000 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k09.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k10</Name>
+        <Title>OFC 2010 2k col</Title>
+        <Abstract>Ortofotocarta anno 2010 proprieta&#39; RT. Dettaglio 1:2000. Copertura parziale del territorio. 32 bit di colore.</Abstract>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67315e+06" maxx="776461" maxy="4.92794e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>26100</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k10.qu</Name>
+        <Title>OFC 2010 1:2000 Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.54974</westBoundLongitude>
+            <eastBoundLongitude>12.4747</eastBoundLongitude>
+            <southBoundLatitude>42.1617</southBoundLatitude>
+            <northBoundLatitude>44.5034</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="545379" miny="4.67316e+06" maxx="776461" maxy="4.92794e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.54541e+06" miny="4.67317e+06" maxx="1.77649e+06" maxy="4.92804e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.1617" miny="9.54974" maxx="44.5034" maxy="12.4747" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.06307e+06" miny="5.18524e+06" maxx="1.38868e+06" maxy="5.54368e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k10.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.aulla</Name>
+        <Title>OFC 2011 2k Aulla col</Title>
+        <Abstract>Ortofotocarta anno 2011. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio Zona di Aulla, alluvione del 25/10/2011. 24 bit di colore</Abstract>
+        <CRS>EPSG:3003</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.85983</westBoundLongitude>
+            <eastBoundLongitude>10.063</eastBoundLongitude>
+            <southBoundLatitude>44.1579</southBoundLatitude>
+            <northBoundLatitude>44.3004</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.56878e+06" miny="4.88998e+06" maxx="1.58482e+06" maxy="4.90562e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.aulla.qu</Name>
+        <Title>OFC 2011 2k Aulla - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto</Abstract>
+        <CRS>EPSG:3003</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.85983</westBoundLongitude>
+            <eastBoundLongitude>10.063</eastBoundLongitude>
+            <southBoundLatitude>44.1579</southBoundLatitude>
+            <northBoundLatitude>44.3004</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="568751" miny="4.88996e+06" maxx="584793" maxy="4.9056e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.56878e+06" miny="4.88998e+06" maxx="1.58482e+06" maxy="4.90562e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="44.1579" miny="9.85983" maxx="44.3004" maxy="10.063" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.09759e+06" miny="5.48992e+06" maxx="1.1202e+06" maxy="5.51205e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k11.aulla.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11</Name>
+        <Title>OFC 2011 2k</Title>
+        <Abstract>Ortofotocarta anno 2011. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio parziale. La copertura e&#39; relativa al territorio della Garfagnana e ad altre aree montane. 24 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.137</westBoundLongitude>
+            <eastBoundLongitude>12.1657</eastBoundLongitude>
+            <southBoundLatitude>42.9</southBoundLatitude>
+            <northBoundLatitude>44.276</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="592770" miny="4.75436e+06" maxx="752790" maxy="4.90318e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.qu</Name>
+        <Title>OFC 2011 - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto relativo alle OFC 2011 del territorio della Garfagnana e altre aree montane. Immagini a 24 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.137</westBoundLongitude>
+            <eastBoundLongitude>12.1657</eastBoundLongitude>
+            <southBoundLatitude>42.9</southBoundLatitude>
+            <northBoundLatitude>44.276</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="592770" miny="4.75436e+06" maxx="752790" maxy="4.90318e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.5928e+06" miny="4.75438e+06" maxx="1.75282e+06" maxy="4.9032e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.9" miny="10.137" maxx="44.276" maxy="12.1657" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.12844e+06" miny="5.29677e+06" maxx="1.35427e+06" maxy="5.50825e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k11.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.fipo</Name>
+        <Title>OFC 2011 2k - Fi Po</Title>
+        <Abstract>Ortofotocarta anno 2011 Firenze Prato. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio parziale. La copertura e&#39; relativo al territorio di Firenze e Prato. 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.9454</westBoundLongitude>
+            <eastBoundLongitude>11.4136</eastBoundLongitude>
+            <southBoundLatitude>43.6947</southBoundLatitude>
+            <northBoundLatitude>43.9845</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="656750" miny="4.84076e+06" maxx="693590" maxy="4.872e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.fipo.qu</Name>
+        <Title>OFC 2011 - Fi Po - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto relativo alle OFC 2011 del territorio di Firenze e Prato. Immagini a 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.9454</westBoundLongitude>
+            <eastBoundLongitude>11.4136</eastBoundLongitude>
+            <southBoundLatitude>43.6947</southBoundLatitude>
+            <northBoundLatitude>43.9845</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="656750" miny="4.84076e+06" maxx="693590" maxy="4.872e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.65678e+06" miny="4.84078e+06" maxx="1.69362e+06" maxy="4.87202e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="43.6947" miny="10.9454" maxx="43.9845" maxy="11.4136" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.21844e+06" miny="5.41831e+06" maxx="1.27056e+06" maxy="5.46304e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k11.fipo.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.fipo.4R1G2B</Name>
+        <Title>OFC 2011 2k - Fi Po - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2011 Firenze Prato. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio parziale. La copertura e&#39; relativo al territorio di Firenze e Prato. 32 bit di colore. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.9454</westBoundLongitude>
+            <eastBoundLongitude>11.4136</eastBoundLongitude>
+            <southBoundLatitude>43.6947</southBoundLatitude>
+            <northBoundLatitude>43.9845</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="656750" miny="4.84076e+06" maxx="693590" maxy="4.872e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.fipo.4R2G3B</Name>
+        <Title>OFC 2011 2k - Fi Po - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2011 Firenze Prato. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio parziale. La copertura e&#39; relativo al territorio di Firenze e Prato. 32 bit di colore. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro)</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.9454</westBoundLongitude>
+            <eastBoundLongitude>11.4136</eastBoundLongitude>
+            <southBoundLatitude>43.6947</southBoundLatitude>
+            <northBoundLatitude>43.9845</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="656750" miny="4.84076e+06" maxx="693590" maxy="4.872e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k11.fipo.1R4G2B</Name>
+        <Title>OFC 2011 2k - Fi Po - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2011 Firenze Prato. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio parziale. La copertura e&#39; relativo al territorio di Firenze e Prato. 32 bit di colore. Riproduzione in falsi colori 1R-4G-2B Falsi colori</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.9454</westBoundLongitude>
+            <eastBoundLongitude>11.4136</eastBoundLongitude>
+            <southBoundLatitude>43.6947</southBoundLatitude>
+            <northBoundLatitude>43.9845</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="656750" miny="4.84076e+06" maxx="693590" maxy="4.872e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.24bit</Name>
+        <Title>OFC 2K 2012 - 24 bit colore</Title>
+        <Abstract>Ortofotocarta anno 2012 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte.</Abstract>
+        <CRS>EPSG:3003</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.82088</westBoundLongitude>
+            <eastBoundLongitude>9.96414</eastBoundLongitude>
+            <southBoundLatitude>44.2256</southBoundLatitude>
+            <northBoundLatitude>44.3978</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.56559e+06" miny="4.8974e+06" maxx="1.57681e+06" maxy="4.91641e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.24bit.qu</Name>
+        <Title>OFC 2K 2012 - 24 bit colore - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto relativo alle OFC 2012. Immagini a 24 bit di colore</Abstract>
+        <CRS>EPSG:3003</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>9.82088</westBoundLongitude>
+            <eastBoundLongitude>9.96414</eastBoundLongitude>
+            <southBoundLatitude>44.2256</southBoundLatitude>
+            <northBoundLatitude>44.3978</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="565562" miny="4.89738e+06" maxx="576782" maxy="4.91639e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.56559e+06" miny="4.8974e+06" maxx="1.57681e+06" maxy="4.91641e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="44.2256" miny="9.82088" maxx="44.3978" maxy="9.96414" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.09326e+06" miny="5.50042e+06" maxx="1.1092e+06" maxy="5.52722e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k12.24bit.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.32bit</Name>
+        <Title>OFC 2K 2012 - 32 bit colore</Title>
+        <Abstract>Ortofotocarta anno 2012 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.0945</westBoundLongitude>
+            <eastBoundLongitude>10.4573</eastBoundLongitude>
+            <southBoundLatitude>43.8619</southBoundLatitude>
+            <northBoundLatitude>44.0283</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="587950" miny="4.85756e+06" maxx="616790" maxy="4.8756e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.32bit.qu</Name>
+        <Title>OFC 2K 2012 - 32 bit colore - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto relativo alle OFC 2012. Immagini a 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.0945</westBoundLongitude>
+            <eastBoundLongitude>10.4573</eastBoundLongitude>
+            <southBoundLatitude>43.8619</southBoundLatitude>
+            <northBoundLatitude>44.0283</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="587950" miny="4.85756e+06" maxx="616790" maxy="4.8756e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.58798e+06" miny="4.85758e+06" maxx="1.61682e+06" maxy="4.87562e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="43.8619" miny="10.0945" maxx="44.0283" maxy="10.4573" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.12372e+06" miny="5.4441e+06" maxx="1.1641e+06" maxy="5.46983e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k12.32bit.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.32bit.4R1G2B</Name>
+        <Title>OFC 2K 2012 - 32 bit colore - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2012 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.0945</westBoundLongitude>
+            <eastBoundLongitude>10.4573</eastBoundLongitude>
+            <southBoundLatitude>43.8619</southBoundLatitude>
+            <northBoundLatitude>44.0283</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="587950" miny="4.85756e+06" maxx="616790" maxy="4.8756e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.32bit.4R2G3B</Name>
+        <Title>OFC 2K 2012 - 32 bit colore - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2012. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro)</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.0945</westBoundLongitude>
+            <eastBoundLongitude>10.4573</eastBoundLongitude>
+            <southBoundLatitude>43.8619</southBoundLatitude>
+            <northBoundLatitude>44.0283</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="587950" miny="4.85756e+06" maxx="616790" maxy="4.8756e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k12.32bit.1R4G2B</Name>
+        <Title>OFC 2K 2012 - 32 bit colore - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2012. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 1R-4G-2B Falsi colori</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.0945</westBoundLongitude>
+            <eastBoundLongitude>10.4573</eastBoundLongitude>
+            <southBoundLatitude>43.8619</southBoundLatitude>
+            <northBoundLatitude>44.0283</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="587950" miny="4.85756e+06" maxx="616790" maxy="4.8756e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.5k12</Name>
+        <Title>OFC 5K 2012 Provincia di Grosseto</Title>
+        <Abstract>Ortofotocarta anno 2012 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:5000. Copertura del territorio: Provincia di Grosseto. 32 bit di colore. Temporalmnte le foto sono state effettuate pochi giorni dopo l&#39;alluvione del 2012.</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.6492</westBoundLongitude>
+            <eastBoundLongitude>11.8581</eastBoundLongitude>
+            <southBoundLatitude>42.3337</southBoundLatitude>
+            <northBoundLatitude>43.206</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="635820" miny="4.69068e+06" maxx="732273" maxy="4.78505e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.5k12.qu</Name>
+        <Title>OFC 5K 2012 Provincia di Grosseto - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto dalle OFC 2012 scala 1:5.000 relativo alla Provincia di Grosseto.</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.6492</westBoundLongitude>
+            <eastBoundLongitude>11.8581</eastBoundLongitude>
+            <southBoundLatitude>42.3337</southBoundLatitude>
+            <northBoundLatitude>43.206</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="635820" miny="4.69068e+06" maxx="732273" maxy="4.78505e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.63585e+06" miny="4.69069e+06" maxx="1.73231e+06" maxy="4.78507e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="42.3337" miny="10.6492" maxx="43.206" maxy="11.8581" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.18546e+06" miny="5.2111e+06" maxx="1.32004e+06" maxy="5.34338e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.5k12.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.5k12.4R1G2B</Name>
+        <Title>OFC 2012 5k col - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2012. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:5000. Copertura Provincia di Grosseto. Dato originale a 32 bit. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.6492</westBoundLongitude>
+            <eastBoundLongitude>11.8581</eastBoundLongitude>
+            <southBoundLatitude>42.3337</southBoundLatitude>
+            <northBoundLatitude>43.206</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="635820" miny="4.69068e+06" maxx="732273" maxy="4.78505e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.5k12.4R2G3B</Name>
+        <Title>OFC 2012 col - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2012. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:5000. Copertura Provincia di Grosseto. Dato originale a 32 bit. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro)</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.6492</westBoundLongitude>
+            <eastBoundLongitude>11.8581</eastBoundLongitude>
+            <southBoundLatitude>42.3337</southBoundLatitude>
+            <northBoundLatitude>43.206</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="635820" miny="4.69068e+06" maxx="732273" maxy="4.78505e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.5k12.1R4G2B</Name>
+        <Title>OFC 2012 col - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2012 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:5000. Copertura Provincia di Grosseto. Dato originale a 32 bit. Riproduzione in falsi colori 1R-4G-2B Falsi colori</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.6492</westBoundLongitude>
+            <eastBoundLongitude>11.8581</eastBoundLongitude>
+            <southBoundLatitude>42.3337</southBoundLatitude>
+            <northBoundLatitude>43.206</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="635820" miny="4.69068e+06" maxx="732273" maxy="4.78505e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k13.32bit</Name>
+        <Title>OFC 2K 2013 - 32 bit colore</Title>
+        <Abstract>Ortofotocarta anno 2013 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.3583</westBoundLongitude>
+            <eastBoundLongitude>11.0221</eastBoundLongitude>
+            <southBoundLatitude>43.2479</southBoundLatitude>
+            <northBoundLatitude>44.1666</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="610250" miny="4.79026e+06" maxx="661690" maxy="4.8913e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k13.32bit.qu</Name>
+        <Title>OFC 2K 2013 - 32 bit colore - Quadro di unione</Title>
+        <Abstract>Quadro di unione per sezioni del territorio coperto relativo alle OFC 2013. Immagini a 32 bit di colore</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.3583</westBoundLongitude>
+            <eastBoundLongitude>11.0221</eastBoundLongitude>
+            <southBoundLatitude>43.2479</southBoundLatitude>
+            <northBoundLatitude>44.1666</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="610250" miny="4.79026e+06" maxx="661690" maxy="4.8913e+06" />
+        <BoundingBox CRS="EPSG:3003"
+                    minx="1.61028e+06" miny="4.79028e+06" maxx="1.66172e+06" maxy="4.89132e+06" />
+        <BoundingBox CRS="EPSG:4326"
+                    minx="43.2479" miny="10.3583" maxx="44.1666" maxy="11.0221" />
+        <BoundingBox CRS="EPSG:3857"
+                    minx="1.15308e+06" miny="5.34977e+06" maxx="1.22697e+06" maxy="5.49127e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="124" height="30">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www502.regione.toscana.it/wmsraster/com.rt.wms.RTmap/wms?map=wmsofc&amp;map_resolution=91&amp;language=ita&amp;version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=rt_ofc.2k13.32bit.qu&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>5e+06</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k13.32bit.4R1G2B</Name>
+        <Title>OFC 2K 2013 - 32 bit colore - 4R 1G 2B NirRG Standard False Color for vegetation studies</Title>
+        <Abstract>Ortofotocarta anno 2013 proprieta&#39; RT. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 4R-1G-2B per gli studi sulla vegetazione</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.3583</westBoundLongitude>
+            <eastBoundLongitude>11.0221</eastBoundLongitude>
+            <southBoundLatitude>43.2479</southBoundLatitude>
+            <northBoundLatitude>44.1666</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="610250" miny="4.79026e+06" maxx="661690" maxy="4.8913e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k13.32bit.4R2G3B</Name>
+        <Title>OFC 2K 2013 - 32 bit colore - 4R 2G 3B NirGB Modified False Color (Conifers dark-red)</Title>
+        <Abstract>Ortofotocarta anno 2013. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 4R-2G-3B per gli studi sulla vegetazione (conifere in rosso-scuro)</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.3583</westBoundLongitude>
+            <eastBoundLongitude>11.0221</eastBoundLongitude>
+            <southBoundLatitude>43.2479</southBoundLatitude>
+            <northBoundLatitude>44.1666</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="610250" miny="4.79026e+06" maxx="661690" maxy="4.8913e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>rt_ofc.2k13.32bit.1R4G2B</Name>
+        <Title>OFC 2K 2013 - 32 bit colore - 1R 4G 2B RNirG RNirG False Color</Title>
+        <Abstract>Ortofotocarta anno 2013. Scala di visibilita 1:1 - 1:5.000.000. Dettaglio 1:2000. Copertura del territorio: parziale. Si faccia riferimento allo strato quadro di unione per la delimitazione delle zone coperte. Foto a 32 bit di colore. Riproduzione in falsi colori 1R-4G-2B Falsi colori</Abstract>
+        <CRS>EPSG:25832</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>10.3583</westBoundLongitude>
+            <eastBoundLongitude>11.0221</eastBoundLongitude>
+            <southBoundLatitude>43.2479</southBoundLatitude>
+            <northBoundLatitude>44.1666</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:25832"
+                    minx="610250" miny="4.79026e+06" maxx="661690" maxy="4.8913e+06" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>32000</MaxScaleDenominator>
+    </Layer>
+  </Layer>
+</Capability>
+</WMS_Capabilities>
