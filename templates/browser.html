@@ -9,6 +9,23 @@
     
     <ion-content class="has-header">
       <div class="list slideright" ng-show="!browserStatus.currentService" style="z-index:10">
+        
+        <div class="item item-divider">
+          OpenStreetMap Based Layers
+        </div>
+        
+        <a href="#" class="item"  ng-click="toService('osmbase', 'osm')">
+          OpenStreetMap Layers
+          <p>
+            Some layers from the OpenstreetMap project
+          </p>
+        </a>
+
+
+        <div class="item item-divider">
+          WMS Layers
+        </div>
+
         <a href="#" class="item" ng-repeat="item in wmsUrls" ng-click="toService(item)">
           {{ wmsInfo[item].Title }}
           <p>
@@ -19,7 +36,8 @@
       </div>
 
       <div class="list slideright" ng-show="browserStatus.currentService" style="z-index:11">
-        <div class="item padding" ng-repeat="item in wmsLayers[browserStatus.currentService]" ng-click="">
+        
+        <div class="item padding" ng-repeat="item in currentLayers[browserStatus.currentService]" ng-click="">
           <h3>{{item.name}}</h3>
           <div>
             {{item.abstract}}
@@ -32,6 +50,7 @@
           </p>
 
         </div>
+      
       </div>
      
     </ion-content>

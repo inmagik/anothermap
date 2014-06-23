@@ -28,17 +28,126 @@
             $scope.wmsLayers = {};
             $scope.wmsInfo = {};
 
+            $scope.osmUrls = ['osmbase'];
+            $scope.osmLayers = {
+                'osmbase' : [
+                    {
+                        name : 'OpenStreetMap base Map',
+                        group : 'rasters',
+                        abstract : 'OpenLayers base Map',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.OSM()
+                        })
+                    },
+
+                    
+                    {
+                        name : 'opencyclemap',
+                        abstract : 'OpenStreetMap opencyclemap',
+                        group : 'rasters',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.OSM({
+                                url: 'http://{a-c}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png'
+                            })
+                        })
+
+                    },
+                    {
+                        name : 'opencyclemap transport',
+                        group : 'rasters',
+                        abstract : 'OpenStreetMap opencyclemap transport',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.OSM({
+                                url: 'http://{a-b}.tile2.opencyclemap.org/cycle/{z}/{x}/{y}.png'
+                            })
+                        })
+
+                    },
+
+                    {
+                        name : 'OSM BW',
+                        group : 'rasters',
+                        abstract : 'OpenStreetMap BW',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.OSM({
+                                url: 'http://{a-b}.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png',
+                                crossOrigin: 'anonymous'
+
+                            }),
+
+                        })
+
+                    },
+
+                    {
+                        name : 'openptmap',
+                        group : 'rasters',
+                        abstract : 'OpenStreetMap openptmap',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.OSM({
+                                url: 'http://www.openptmap.org/tiles/{z}/{x}/{y}.png'
+                            })
+                        })
+
+                    },
+                    {
+                        name : 'Toner',
+                        group : 'rasters',
+                        abstract : 'Stamen Toner ',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.Stamen({
+                                layer : 'toner'
+                            })
+                        })
+
+                    },
+                    {
+                        name : 'stamen-terrain',
+                        group : 'rasters',
+                        abstract : 'Stamen Terrain',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.Stamen({
+                                layer : 'terrain'
+                            })
+                        })
+
+                    },
+                    {
+                        name : 'stamen-watercolor',
+                        group : 'rasters',
+                        abstract : 'Stamen Watercolor ',
+                        layer : new ol.layer.Tile({
+                            source : new ol.source.Stamen({
+                                layer : 'watercolor'
+                            })
+                        })
+
+                    },
 
 
 
-            
+
+                ]
+            };
 
 
-            $scope.toService = function(service){
+
+
+            $scope.toService = function(service, type){
+                console.log("xx", service,type)
                 $timeout(function(){
                     $scope.browserStatus.currentService = service;
                     $scope.browserStatus.context = 'service';
-                    $scope.browserStatus.title = $scope.wmsInfo[service].Title;
+                    
+                    if(type=='osm'){
+                        $scope.browserStatus.title = $scope.osmLayers[service].name;    
+                        $scope.currentLayers = $scope.osmLayers;
+
+                    } else {
+                        $scope.browserStatus.title = $scope.wmsInfo[service].Title;    
+                        $scope.currentLayers = $scope.wmsLayers;
+                    }
+                    
                 })
             };
 
