@@ -8,7 +8,10 @@
             
             -->
             
-            <button class="button icon ion-arrow-expand" ng-click="toExtent(layer)"></button>
+            <!--<button class="button icon ion-arrow-expand" ng-click="toExtent(layer)"></button>-->
+            <button ng-if="layer.legendUrl"class="button button-small" ng-click="toggleLegend(layer.legendUrl)"
+                ng-class="{'button-energized' : hasLegend(layer.legendUrl) == true}"
+                >L</button>
 
             {{layer.name }} <br>
             {{layer.abstract }}

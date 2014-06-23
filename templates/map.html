@@ -50,6 +50,8 @@
         </button>
         <button class="button button-small button-positive icon ion-search" ng-click="togglePanel('search', true)" ng-class="{'button-assertive' : panels['search'] == true }">
         </button>
+        <button class="button button-small button-positive" ng-click="togglePanel('legend')" ng-class="{'button-assertive' : panels['legend'] == true }">Legend
+        </button>
       
     </div>
 
@@ -118,6 +120,26 @@
     <div class="popover hide" id="popup">
       <div class="popover-arrow"></div>
       <div class="popover-content " stop-event="click"></div>
+    </div>
+
+
+    <!--legend ... #TODO: move to a directive! -->
+    <div class="legend-panel aa" ng-if="panels.legend">
+      <div class="padding">
+      <h3>Legends</h3>
+      <p ng-if="currentLegends.length==0" class="text-center">
+        No legends to show.
+      </p>
+      <div ng-repeat="legend in currentLegends" class="legend-panel-inner">
+        <h4>{{legend.title}}</h4>
+        <button class="button button-assertive button-small" ng-click="removeLegend(legend)">Remove</button>
+        <br>
+        <img ng-src="{{legend.url}}" alt="">
+        
+        
+        <hr>
+      </div>
+      </div>
     </div>
 
 

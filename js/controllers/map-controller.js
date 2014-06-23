@@ -4,8 +4,9 @@
     angular.module('pocketMap.controllers')
 
     .controller('MapCtrl', ['$scope', '$rootScope', '$q', '$timeout', 'configManager', 'mapConfigService', 'mapsManager','layersManager', 'layersConfigService', 'olGeolocationService', 
-            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService',
-        function($scope, $rootScope, $q, $timeout, configManager, mapConfigService,mapsManager,layersManager, layersConfigService, olGeolocationService, $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService) {
+            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService', 'legendsService',
+        function($scope, $rootScope, $q, $timeout, configManager, mapConfigService,mapsManager,layersManager, layersConfigService, olGeolocationService,
+         $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService,legendsService) {
 
         
         $scope.appInfo = {
@@ -121,6 +122,19 @@
                 $scope.panels[panelName] = !$scope.panels[panelName];
             })
         };
+
+
+        //legend stuff
+        $scope.currentLegends = [];
+        $scope.removeLegend = function(legend){
+            legendsService.removeLegend(legend);
+        }
+        $scope.$on('legendsChanged', function(nv){
+            $timeout(function(){
+                $scope.currentLegends = legendsService.legends;
+            });
+        })
+
 
 
         

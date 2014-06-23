@@ -86,6 +86,7 @@
 
                     ]
                 },
+                /*
                 { 
                     groupName : 'Regione Lombardia',
                     urls : [
@@ -110,6 +111,7 @@
                         //'wms_capabilities/toscana/ortofoto_piemonte.xml',
                     ]
                 },
+                */
                 /*
                 { 
                     groupName : 'Nasa',

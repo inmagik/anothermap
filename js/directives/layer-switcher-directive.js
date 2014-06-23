@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('pocketMap')
-        .directive('layerSwitcher', ['$rootScope','layersManager', 'indexService', function($rootScope, layersManager, indexService){
+        .directive('layerSwitcher', ['$rootScope','layersManager',  'legendsService', 'indexService', function($rootScope, layersManager, legendsService,indexService){
         return {
 
             restrict : 'C',
@@ -104,18 +104,26 @@
                     return layerContainer.layer.getVisible()
                 };
 
-
                 scope.layerInMap = function(uid){
                     return layersManager.getLayerConfigById(scope.mapId, uid) != null;
                 };
 
                 scope.toExtent = function(layerContainer){
                     $rootScope.$broadcast('zoomToLayer', layerContainer);
-                }
+                };
 
+                scope.toggleLegend = function(legendUrl){
+                    if(legendsService.hasLegend(legendUrl)){
+                        legendsService.removeLegend(legendUrl)
+                    } else {
+                        legendsService.addLegend(legendUrl)    
+                    }
+                    
+                };
 
-
-
+                scope.hasLegend = function(legendUrl){
+                    return legendsService.hasLegend(legendUrl);
+                };
 
             }
 

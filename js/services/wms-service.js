@@ -53,6 +53,8 @@
 
 
         svc.createLayerConfigFromWMS = function(layerInfo, serviceInfo, version){
+
+            console.log("aaaa", layerInfo)
             if(!layerInfo.Name){
                 console.error("No name, cannot create wms config", layerInfo);
                 return null;
@@ -113,6 +115,20 @@
                 });
                 out.bbox = boundingForCrs;
                 
+            }
+
+            if(layerInfo.Style){
+                var st = layerInfo.Style[0];
+                if(st){
+                    if(st.LegendURL){
+                        if(st.LegendURL[0]){
+                            var res = st.LegendURL[0].OnlineResource;
+                            out.legendUrl = { url:res, title:layerInfo.Title };
+                        }
+
+                    }
+                }
+
             }
 
             return out;
