@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities version="1.3.0"
+  xmlns="http://www.opengis.net/wms"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:esri_wms="http://www.esri.com/wms"
+  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?version=1.3.0&amp;service=WMS&amp;request=GetSchemaExtension">
+  <Service>
+    <Name><![CDATA[CTR - Carta Tecnica Regionale - WMS]]></Name>
+    <Title><![CDATA[CTR - Carta Tecnica Regionale - WMS]]></Title>
+    <Abstract>WMS</Abstract>
+    <KeywordList><Keyword><![CDATA[]]></Keyword></KeywordList>
+    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson><![CDATA[]]></ContactPerson>
+        <ContactOrganization><![CDATA[]]></ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition><![CDATA[]]></ContactPosition>
+      <ContactAddress>
+        <AddressType><![CDATA[]]></AddressType>
+        <Address><![CDATA[]]></Address>
+        <City><![CDATA[]]></City>
+        <StateOrProvince><![CDATA[]]></StateOrProvince>
+        <PostCode><![CDATA[]]></PostCode>
+        <Country><![CDATA[]]></Country>
+      </ContactAddress>
+      <ContactVoiceTelephone><![CDATA[]]></ContactVoiceTelephone>
+      <ContactFacsimileTelephone><![CDATA[]]></ContactFacsimileTelephone>
+      <ContactElectronicMailAddress><![CDATA[]]></ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees><![CDATA[]]></Fees>
+    <AccessConstraints><![CDATA[]]></AccessConstraints>
+    <MaxWidth>2048</MaxWidth>
+    <MaxHeight>2048</MaxHeight>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer"/></Get></HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/bmp</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/tiff</Format>
+        <Format>image/png</Format>
+        <Format>image/png8</Format>
+        <Format>image/png24</Format>
+        <Format>image/png32</Format>
+        <Format>image/gif</Format>
+        <Format>image/svg+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer"/></Get></HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/vnd.esri.wms_raw_xml</Format>
+        <Format>application/vnd.esri.wms_featureinfo_xml</Format>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>text/xml</Format>
+        <Format>text/html</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer"/></Get></HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <esri_wms:GetStyles>
+        <Format>application/vnd.ogc.sld+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer"/></Get></HTTP>
+        </DCPType>
+      </esri_wms:GetStyles>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_xml</Format>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>text/xml</Format>
+      <Format>XML</Format>
+    </Exception>
+    <Layer>
+      <Title><![CDATA[Layers]]></Title>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.32367567573376</westBoundLongitude><eastBoundLongitude>11.6654890647749</eastBoundLongitude><southBoundLatitude>44.5281664887213</southBoundLatitude><northBoundLatitude>46.7845874847426</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.32367567573376" miny="44.5281664887213" maxx="11.6654890647749" maxy="46.7845874847426"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.5281664887213" miny="8.32367567573376" maxx="46.7845874847426" maxy="11.6654890647749"/>
+<BoundingBox CRS="EPSG:32632"  minx="448373.927" miny="4933730.53875" maxx="703570.902" maxy="5181226.55125"/>
+      <Layer queryable="1">
+        <Name>0</Name>
+        <Title><![CDATA[Sfondo C.T.R. 10000]]></Title>
+        <Abstract><![CDATA[Sfondo C.T.R. 10000]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.47661185286747</westBoundLongitude><eastBoundLongitude>11.509064437391</eastBoundLongitude><southBoundLatitude>44.6325340470352</southBoundLatitude><northBoundLatitude>46.6833482949784</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.47661185286747" miny="44.6325340470352" maxx="11.509064437391" maxy="46.6833482949784"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6325340470352" miny="8.47661185286747" maxx="46.6833482949784" maxy="11.509064437391"/>
+<BoundingBox CRS="EPSG:32632"  minx="459973.7895" miny="4944980.3575" maxx="691971.0395" maxy="5169976.7325"/>
+        <Style>
+          <Name>default</Name>
+          <Title>0</Title>
+          <LegendURL width="129" height="86">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer>
+        <Title><![CDATA[AMBITI AMMINISTRATIVI]]></Title>
+        <Abstract><![CDATA[AMBITI AMMINISTRATIVI]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.4859646265483</westBoundLongitude><eastBoundLongitude>11.5026087403083</eastBoundLongitude><southBoundLatitude>44.6547018362515</southBoundLatitude><northBoundLatitude>46.6421766748925</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.4859646265483" miny="44.6547018362515" maxx="11.5026087403083" maxy="46.6421766748925"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6547018362515" miny="8.4859646265483" maxx="46.6421766748925" maxy="11.5026087403083"/>
+<BoundingBox CRS="EPSG:32632"  minx="460659.221" miny="4947434.6033" maxx="691621.9946" maxy="5165401.7504"/>
+      <Layer queryable="1">
+        <Name>2</Name>
+        <Title><![CDATA[REGIONE]]></Title>
+        <Abstract><![CDATA[REGIONE]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.48596462657387</westBoundLongitude><eastBoundLongitude>11.5026087401839</eastBoundLongitude><southBoundLatitude>44.6547018362515</southBoundLatitude><northBoundLatitude>46.6421766721927</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.48596462657387" miny="44.6547018362515" maxx="11.5026087401839" maxy="46.6421766721927"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6547018362515" miny="8.48596462657387" maxx="46.6421766721927" maxy="11.5026087401839"/>
+<BoundingBox CRS="EPSG:32632"  minx="460659.221" miny="4947434.6033" maxx="691621.9946" maxy="5165401.7501"/>
+        <Style>
+          <Name>default</Name>
+          <Title>2</Title>
+          <LegendURL width="100" height="16">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=2" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>3</Name>
+        <Title><![CDATA[PROVINCE]]></Title>
+        <Abstract><![CDATA[PROVINCE]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.48596462656534</westBoundLongitude><eastBoundLongitude>11.5026087389206</eastBoundLongitude><southBoundLatitude>44.6547018380771</southBoundLatitude><northBoundLatitude>46.6421766730926</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.48596462656534" miny="44.6547018380771" maxx="11.5026087389206" maxy="46.6421766730926"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6547018380771" miny="8.48596462656534" maxx="46.6421766730926" maxy="11.5026087389206"/>
+<BoundingBox CRS="EPSG:32632"  minx="460659.221" miny="4947434.6035" maxx="691621.9945" maxy="5165401.7502"/>
+        <Style>
+          <Name>default</Name>
+          <Title>3</Title>
+          <LegendURL width="205" height="265">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=3" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MinScaleDenominator>236235.119048</MinScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>4</Name>
+        <Title><![CDATA[COMUNE]]></Title>
+        <Abstract><![CDATA[COMUNE]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.48596462657387</westBoundLongitude><eastBoundLongitude>11.5026087401839</eastBoundLongitude><southBoundLatitude>44.6547018362515</southBoundLatitude><northBoundLatitude>46.6421766721927</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.48596462657387" miny="44.6547018362515" maxx="11.5026087401839" maxy="46.6421766721927"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6547018362515" miny="8.48596462657387" maxx="46.6421766721927" maxy="11.5026087401839"/>
+<BoundingBox CRS="EPSG:32632"  minx="460659.221" miny="4947434.6033" maxx="691621.9946" maxy="5165401.7501"/>
+        <Style>
+          <Name>default</Name>
+          <Title>4</Title>
+          <LegendURL width="98" height="16">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=4" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>22678.571429</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>5</Name>
+        <Title><![CDATA[LIMITI AMMINISTRATIVI]]></Title>
+        <Abstract><![CDATA[LIMITI AMMINISTRATIVI]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:32632</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>8.48596462785487</westBoundLongitude><eastBoundLongitude>11.5026087390035</eastBoundLongitude><southBoundLatitude>44.6547018371777</southBoundLatitude><northBoundLatitude>46.6421766748925</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84"  minx="8.48596462785487" miny="44.6547018371777" maxx="11.5026087390035" maxy="46.6421766748925"/>
+<BoundingBox CRS="EPSG:4326"  minx="44.6547018371777" miny="8.48596462785487" maxx="46.6421766748925" maxy="11.5026087390035"/>
+<BoundingBox CRS="EPSG:32632"  minx="460659.2211" miny="4947434.6034" maxx="691621.9945" maxy="5165401.7504"/>
+        <Style>
+          <Name>default</Name>
+          <Title>5</Title>
+          <LegendURL width="151" height="131">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="http://www.cartografia.regione.lombardia.it/ArcGIS10/services/wms/ctr_wms/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=5" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>236235.119048</MaxScaleDenominator>
+      </Layer>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>

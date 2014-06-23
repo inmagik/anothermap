@@ -1,0 +1,35 @@
+<div class="help" ng-if="helpShown==true" ng-class="{'with-backdrop' : step.backdrop }">
+      <div class="overlay-light" cng-style="overlayStyle">
+      </div>
+      <div class="help-popup">
+        <div class="bar bar-calm help-header ">
+          <h4 class="help-title">{{ step.title }}</h4>  
+          <div class="help-close">
+            <button class="button icon ion-close-round button-small " ng-click="toggleHelp()"></button>
+          </div>
+        </div>
+        <div class="help-content">
+          <div ng-bind-html="step.text" ng-if="step.text"> </div>
+          <div ng-include="step.template" ng-if="step.template"> </div>
+        </div>
+        <div class="help-footer">
+          <div class="row">
+            <div class="col">
+              <button class="button button-energized  button-small  button-block" ng-if="step.buttons.prev" ng-click="setStep(step.buttons.prev.step)">
+                <i class="icon ion-arrow-left-a"></i>&nbsp;
+                {{step.buttons.prev.label}}
+              </button>
+              
+            </div>
+            <div class="col">
+              <button class="button button-positive button-small  button-block " ng-if="step.buttons.next" ng-click="setStep(step.buttons.next.step)">
+                {{step.buttons.next.label}}&nbsp;
+                <i class="icon ion-arrow-right-a"></i>
+              </button>
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,91 @@
+<div class="modal">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">About</h1>
+      <button class="button icon ion-close-round" ng-click="closeModal()"></button>
+    </ion-header-bar>
+    <ion-content>
+    <div class="padding about-text">
+      <div class="text-center">
+        <h1 class="amatic-bold">{{appInfo.title}}</h1>
+        <h2 class="amatic-bold">version {{appInfo.version}}</h2>
+        <img src="img/inmagik_small.png" alt="" class="about-logo">
+      </div>
+      <br>
+      <div class="padding text-center">
+      
+        <p>
+            This application provides a detailed and easy-to-use map based on data from OpenStreetMap project,
+            a publicly available geographic database with global coverage. Check out www.openstreetmap.org for more information and to contribute to the project. 
+        </p>
+
+        <p>
+          The map covers the box ranging from ({{config.extent[0]}}, {{config.extent[1]}}) to ({{config.extent[2]}}, {{config.extent[3]}}) - WGS84 coordinate projection system. <br>
+          The data displayed has been updated on {{ config.data_update }}.
+        </p>
+
+        <p>
+            The information contained in the application might not have the same level of accuracy for all
+            locations shown on the map. If you find inaccuracies and problems with the map or points of interest
+            and want to contribute, you can visit www.openstreetmap.org and edit the map to update it. 
+        </p>
+        <p>
+            The application will be regularly updated to reflect the data from the OpenStreetMap database,
+            but as we can't guarantee the perfect accuracy of the information, the application is not intended be used as a navigator.
+        </p>
+        
+        <p>
+          <b>Powered by Inmagik Map engine version {{ appInfo.engineVersion }}</b>
+        </p>
+        
+
+        <h2 class="amatic-bold">Data licence</h2>
+            <p>
+            Map data © OpenStreetMap contributors.<br/>
+            <p>
+              OpenSteetMap data is available under the Open Database Licence: 
+              <b>www.opendatacommons.org/licenses/odbl</b>
+            </p>
+            <p>
+               You can find the full information about OpenStretMap data licensing at this page: <br/>
+               <b>www.openstreetmap.org/copyright</b>
+            </p>
+            <!--<div ng-include src="'data/licenses/odbl-10.txt'"></div>-->
+          </p>
+
+
+    </div>
+
+
+
+
+    </div>
+    </ion-content>
+    <ion-footer-bar class="bar-positive">
+      <h1 class="title">{{ appInfo.title }} &copy; Inmagik SRL</h1>
+    </ion-footer-bar>
+
+</div>
+<!--
+<ion-view title="About">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header has-footer" >
+    <div class="card">
+        <div class="item item-text-wrap">
+            <div style="text-align:center">
+                <h1>{{ appInfo.title }}</h1>    
+                <p>
+                    Hey, welcome to the jungle!
+                </p>
+            </div>
+            
+            
+        </div>
+    </div>
+  </ion-content>
+    <div class="bar bar-footer bar-positive">
+        <div class="title">{{ appInfo.title }} &copy; Inmagik SRL</div>
+    </div>
+</ion-view>
+-->

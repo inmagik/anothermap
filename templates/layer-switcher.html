@@ -1,0 +1,23 @@
+
+<div class="panel panel-info">
+    
+    <div ng-repeat="layerGroup in groupedLayers">
+        <div class="list layers-list">
+        <div class="item item-button-right transparent" ng-repeat="layer in layerGroup.layers">
+            <img class="icon-title" ng-src="{{ getLayerIcon(layer.name) }}" alt=""> 
+            {{layer.name }}
+            <button class="button button-calm" ng-click="setVisible(layer)" ng-class="{'button-energized' : isVisible(layer) == true}">
+                <i class="icon" ng-class="{'ion-eye' : isVisible(layer) == true, 'ion-eye-disabled' : isVisible(layer) == false}"></i>
+
+            </button>
+        </div>
+
+        
+
+    </div>
+
+      
+
+
+</div>
+    

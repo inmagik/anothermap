@@ -1,0 +1,135 @@
+
+<ion-view title="{{appInfo.title}}">
+  <!--  
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+    -->
+
+    
+    <ion-header-bar  class="bar-positive">
+        <button class="button icon ion-information-circled" ng-click="openModal()"></button>        
+        <h1 class="title">{{appInfo.title}}</h1>
+        <button class="button icon ion-help" ng-click="toggleHelp()"></button>
+    </ion-header-bar>
+  
+  <ion-content class="has-header" scroll="false" ng-cloak>
+    
+    
+    <div id="loader-overlay" ng-if="uiStatus.dataLoaded==false">
+      <h1 class="amatic-bold">
+        Loading map data
+      </h1>
+      <br>
+      <img src="img/loader.gif" alt="loader">
+      
+
+    </div>
+    <div id="main-map" class="main-map"></div>
+
+    <!-- help -->
+    <div tour ng-controller="HelpCtrl"></div>
+    
+    <!-- upper toolbar -->
+    <div class="toolbar">
+        <button class="button button-small button-positive icon ion-android-locate" ng-click="toggleGeolocation()" ng-class="{'button-assertive' : uiStatus.gps == true }">
+        </button>
+        <button class="button button-small button-positive icon ion-navigate" ng-click="toggleFollow()" ng-class="{'button-assertive' : uiStatus.follow == true }" ng-disabled="uiStatus.gps == false || (!uiStatus.locationInExtent)">
+        </button>
+        <button class="button button-small button-positive icon ion-refresh" ng-click="toggleOrientation()" ng-class="{'button-assertive' : uiStatus.orientation == true }">
+        </button>
+        <button class="button button-small button-positive icon ion-arrow-up-c" ng-click="toggleLockRotation()" ng-class="{'button-assertive' : uiStatus.lockRotate == true }">
+        </button>
+    </div>
+
+    <!-- lower toolbar -->
+    <div class="bottom-toolbar">
+        <button class="button button-small button-positive icon ion-map" ng-click="togglePanel('layers', true)" ng-class="{'button-assertive' : panels['layers'] == true }">
+        </button>
+        <button class="button button-small button-positive icon ion-navicon" ng-click="openBrowser()">
+        </button>
+        <button class="button button-small button-positive icon ion-search" ng-click="togglePanel('search', true)" ng-class="{'button-assertive' : panels['search'] == true }">
+        </button>
+      
+    </div>
+
+    <div class="layers-browser transparent-box aa" ng-if="panels.layers" >
+      <div class="padding">
+        <h4 class="layer-switcher-title"><i class="icon ion-map"></i> Map Layers</h4>
+        <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="togglePanel('layers')"></button>
+
+          <div class="layer-switcher" map-id="main-map" groups="rasters" >
+          </div>
+      </div>
+    </div>
+
+    <!--move to directive -->
+    <div class="search-panel transparent-box aa" ng-if="panels.search" ng-controller="SearchCtrl">
+      
+        <div class="padding transparent-box">
+        <div class="list transparent-box">
+
+          <div class="item-input transparent-box" >
+          <label class="item-input-wrapper transparent-box">
+            <input type="text" placeholder="Search text" ng-model="searchStatus.search">
+          </label>
+          <button class="button button-small button-calm" ng-click="search()" ng-disabled="searchStatus.search.length < 3 ">
+            Search
+          </button>
+          </div>
+
+          <div class="item item-checkbox transparent" style="margin:0px 10px;">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="searchStatus.address">
+          </label>
+          Match addresses
+        </div>
+
+          <div class="item-input transparent-box transparent-box" ng-if="searchStatus.lastSearch" style="margin:0px 10px;">
+            <b>{{  searchStatus.searchResults.length }}</b>&nbsp;results for&nbsp;<b>{{ searchStatus.lastSearch }}</b> &nbsp;
+            <button class="button button-assertive button-small" ng-click="clear()">Clear</button>
+          </div>
+
+        </div>
+        
+        <div class="search-results" style="margin-top:-10px;" ng-if="searchStatus.searchResults.length">
+          
+        <div class="list transparent-box" style="margin:0 10px;">
+          <div class="item item-button-right transparent" ng-repeat="result in searchStatus.searchResults| orderBy: orderDistanceFunction">
+            <img class="icon-title" ng-src="{{ result.icon }}" alt="">
+            {{ result.title }}<br>
+            {{ result.layerName }} <span feature-cat feature="result"></span><br>
+            <div xng-if="searchStatus.address">
+              <small>{{ result.feature.display_name }}</small>
+            </div>
+            <div distance geom="result.feature.geometry"></div>
+            <button class="button button-clear " ng-click="centerFeature(result.feature)">
+              <i class="icon ion-android-location"></i>
+            </button>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    
+    <!-- popover ... #TODO: move to a directive! -->
+    <div class="popover hide" id="popup">
+      <div class="popover-arrow"></div>
+      <div class="popover-content " stop-event="click"></div>
+    </div>
+
+
+    <!-- hud -->
+    <!--
+    <div class="hud" id="hud"></div>
+    -->
+
+      
+    
+      
+    
+  </ion-content>
+
+</ion-view>

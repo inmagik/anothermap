@@ -1,0 +1,10 @@
+<div>
+    <h3>
+        {{ browserStatus.feature.leisure |human}}    
+    </h3>
+    <p><i>Address shown on map</i>: {{ browserStatus.feature.display_name }}</p>
+    <div distance geom="browserStatus.feature.geometry"></div>
+    
+    <div feature-table props="browserStatus.feature"></div>
+    
+</div>

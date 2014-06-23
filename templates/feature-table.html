@@ -1,0 +1,18 @@
+<div>
+    <!--
+    <h4>OpenStreetMap data</h4>
+    <div ng-repeat="name in namedProps" ng-if="props[name]" class="row">
+        <div class="col positive label-col">{{name}}</div>
+        <div class="col">{{props[name]}}</div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+    -->
+    <br>
+    <h4>Coordinates</h4>
+    <div ng-repeat="name in geoProps" ng-if="props[name]" class="row">
+        <span class="label-col positive">{{name}}</span>: <span class="">{{props[name]}}</span>
+        
+    </div>
+</div>

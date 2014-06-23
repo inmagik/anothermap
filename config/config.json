@@ -1,0 +1,30 @@
+{
+    "center": [
+        9.610728, 
+        45.691894
+    ], 
+    "app_version": "1.0", 
+    "app_name": "Another Map", 
+    "data_update" : "2014-06-09",
+    "extent": [7.288286101661426,44.14891786539627,12.127763640723927,47.16937350040712], 
+    "extent_projection" : "EPSG:4326",
+    "mSaxResolution" : 305.748113141, 
+    
+    "baseLayers" : [
+        {
+            "name" : "OpenStreetMap",
+            "group" : "rasters",
+            "layerClass" : "ol.layer.Tile",
+            "sourceClass" : "ol.source.OSM",
+            "sourceOptions" : {
+            }
+        }
+
+    ],
+    
+    "vectorLayers" : [
+        
+                
+    ]
+    
+}
