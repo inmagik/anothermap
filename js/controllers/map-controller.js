@@ -157,11 +157,8 @@
         var positionLayer = null;
 
 
-        var createPositionLayer = function(){
+        var createPositionLayer = function(map){
             var posimg;
-
-            
-
 
             var vectorSource = new ol.source.Vector({});
             
@@ -176,14 +173,18 @@
             });
 
             var iconStyle = new ol.style.Style({
-              image: posimg
+              image: posimg,
+              zIndex : 1000
             });            
-
+            
             var out = new ol.layer.Vector({
                 source: vectorSource,
                 style : iconStyle,
                 visible : true
             });
+            
+
+            
 
             return out;
         };
@@ -281,7 +282,8 @@
 
 
         var updatePositionLayer = function(coordsm){
-            
+
+
             var features = positionLayer.getSource().getFeatures()
             
             if(features.length){
@@ -300,9 +302,9 @@
         };
         
         
-        var initGeoloc = function(){
+        var initGeoloc = function(map){
 
-            positionLayer = createPositionLayer();
+            positionLayer = createPositionLayer(map);
             var cfg = { name : "geolocation", layer:positionLayer };
             layersManager.addLayer('main-map', cfg);
 
@@ -632,7 +634,7 @@
 
 
 
-                    initGeoloc();
+                    initGeoloc(map);
                     //createPopupOverlay();
                     //createHudOverlay();
                     prepareEvents();
