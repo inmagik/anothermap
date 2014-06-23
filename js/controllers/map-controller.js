@@ -266,57 +266,11 @@
         var createPositionLayer = function(){
             var posimg;
 
-            /*
-            var setIcon = function(rotation){
-                posimg = new ol.style.Icon({
-                    anchor: [0.5, 0.5],
-                    anchorXUnits: 'fraction',
-                    anchorYUnits: 'fraction',
-                    //opacity: 0.75,
-                    //size : 10,
-                    src: 'img/location.png',
-                    rotation: rotation,//$scope.map.getView().getRotation(),
-                    rotateWithView : false
-                });
-
-                var iconStyle = new ol.style.Style({
-                  image: posimg
-                });
-                positionLayer.setStyle(iconStyle);
-            }
-
-            $scope.map.getView().on("change:rotation", function(){
-                if(!$scope.uiStatus.orientation){
-                    setIcon($scope.map.getView().getRotation());
-                }
-                
-            })
-
-            $scope.$watch('uiStatus.lastHeading', function(nv){
-                setIcon(nv);
-            });
-
-            $scope.$watch('uiStatus.orientation', function(nv){
-                if(nv){ return }
-                if($scope.uiStatus.lastHeading){
-                    setIcon($scope.uiStatus.lastHeading);
-                }
-            });
-            */
+            
 
 
-            var vectorSource = new ol.source.Vector({
-            });
-
-            /*
-            var iconStyle = new ol.style.Style({
-                image : new ol.style.Circle({
-                    radius: 10,
-                    fill: new ol.style.Fill({color: '#666666'}),
-                    stroke: new ol.style.Stroke({color: '#bada55', width: 2})
-                })
-            });
-            */
+            var vectorSource = new ol.source.Vector({});
+            
             posimg = new ol.style.Icon({
                 anchor: [0.5, 0.5],
                 anchorXUnits: 'fraction',
@@ -341,15 +295,8 @@
         };
 
 
-        var openPopup = function(feature){
-
-
-        };
-
         var hudOverlay;
         var popupOverlay;
-
-
 
         var createHudOverlay  = function(){
 
@@ -723,8 +670,6 @@
 
 
         var initMap = function(data){
-            console.log("xxx1",data)
-            
                     
             mapConfigService.getMapConfig(
                 {
@@ -747,12 +692,6 @@
                     
                     v.fitExtent(mapsManager.getExtent('main-map'), map.getSize() );
 
-
-                    
-
-                    //layersManager.addLayer('main-map', layersConfigService.fixedLayers[0]);
-                    //map.addLayer(editableVectors.drawTarget);
-                    //map.addInteraction(editableVectors.drawInteraction);
 
                     //adding base layers
                     _.each(data.baseLayers, function(item){
@@ -834,9 +773,6 @@
                 
             };
 
-            $scope.openBrowserOnFeature = function(layerName, feature){
-                $rootScope.$broadcast("browserToFeature", layerName, feature);
-            };
 
 
             $rootScope.getDistanceFromLastPos = function(geom){
@@ -857,66 +793,7 @@
                  return $rootScope.getDistanceFromLastPos(feature.geometry)
             };
 
-
-            //listener ... from browser
-            $scope.$on('centerBrowserFeature', function(evt,data, layerName){
-                var v = $scope.map.getView();
-                var pos = data.geometry.getExtent()
-                var c = [(pos[2]+pos[0])/2.0, (pos[3] + pos[1])/2.0,  ];
-                //v.setCenter(c);
-                //v.setZoom(3);
-                animateCenter(c);
-                animateZoom(3);
-                //close browser
-                $scope.closeBrowser();
-
-                if(layerName){
-                    var l = layersManager.getLayerByName('main-map', layerName);
-                    l.setVisible(true);
-                };
-                
-                setTimeout(function(){
-                    var coords = $scope.map.getPixelFromCoordinate(c)
-                    handlePopup(coords,layerName);
-                    $scope.closeAllPanels();
-                }, 1000);
-            });
-
-
-            $scope.$on('centerSearchFeature', function(evt,data, layerName){
-                var v = $scope.map.getView();
-                var pos = data.geometry.getExtent()
-                var c = [(pos[2]+pos[0])/2.0, (pos[3] + pos[1])/2.0,  ];
-
-                if(layerName){
-                    var l = layersManager.getLayerByName('main-map', layerName);
-                    if(l){
-                        l.setVisible(true);    
-                    }
-                };
-
-                animateCenter(c);
-                //v.setCenter(c);
-                //v.setZoom(3);
-                animateZoom(3);
-                //close browser
-                $scope.togglePanel('search')
-
-                setTimeout(function(){
-                    var coords = $scope.map.getPixelFromCoordinate(c)
-                    handlePopup(coords, layerName);
-                    $scope.closeAllPanels();
-                },1000);
-                
-
-            });
-
-
-            $scope.$on('showMeInBrowser', function(evt,feature,options){
-                $scope.closeAllPanels();
-            });
-
-
+            
             $scope.showHelp = function(){
                 $scope.helpShown = true;
             };
@@ -939,7 +816,6 @@
 
             //initialization
             $ionicPlatform.ready(function(){
-                layersManager.setStyleProviderFunction(iconsService.styleProviderFunction)
                 startFromConfig();    
             });
 

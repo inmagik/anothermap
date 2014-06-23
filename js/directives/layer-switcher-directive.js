@@ -102,7 +102,9 @@
 
                 scope.isVisible = function(layerContainer){
                     return layerContainer.layer.getVisible()
-                }
+                };
+
+
 
 
 

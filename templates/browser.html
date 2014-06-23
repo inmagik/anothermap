@@ -5,111 +5,15 @@
       <button class="button icon ion-close-round" ng-click="closeBrowser()"></button>
     </ion-header-bar>
     
-    <div class="bar bar-subheader  bar-positive fader" ng-if="context == 'layer'" style="z-index:11;">
-        <div class="button-bar">
-          
-            <button class="button button-small button-positive" ng-class="{'button-calm' : sortMode =='_title'}" ng-click="setSortMode('_title')">By name</button>
-            <button class="button button-small button-positive" ng-class="{'button-calm' : sortMode =='orderDistanceFunction'}" ng-click="setSortMode('orderDistanceFunction')" ng-disabled="uiStatus.lastPosition==null">By distance</button>
-
-        </div>
-    </div>
-
 
     
-
-    
-    <ion-content ng-class="{'has-subheader': context == 'layer', 'has-footer': context == 'layer' }">
-    
-      <div class="list slideright" ng-show="browserStatus.layer == null && browserStatus.feature==null" style="z-index:10">
-        <a href="#" class="item" ng-repeat="layer in layers" ng-click="toLayer(layer.name)">
-          <img class="icon-title" ng-src="{{ getLayerIcon(layer.name) }}" alt=""> {{layer.name}}
-          <div ng-if="layer.options.description" style="margin-left:32px;">
-            <p>
-              {{layer.options.description}}
-            </p>
-          </div>
-          
-        </a>
-      </div>
-
-
-
-
-      <div class="slideright" ng-if="browserStatus.layer" style="z-index:11;" ng-show="browserStatus.feature==null">
-            
-
-        <div class="list" >
-          <a href="#" class="item" ng-repeat="feature in features | filter:filterFun| orderBy: sorter" ng-click="toFeature(feature)">
-            <img class="icon-title" ng-src="{{ feature._icon }}" alt=""> {{ feature._title }} 
-            <span feature-cat feature="feature"></span><br>
-            <small>{{ feature.address.road}} <span ng-if="feature.address.suburb">{{ feature.address.suburb }}, </span>
-            {{feature.address.city }} ({{feature.address.county }})</small>
-            <br>
-            <div distance geom="feature.geometry"></div>
-          </a>
-
-        
-        <ion-infinite-scroll
-          on-infinite="loadPartial()"
-          sdistance="10%" ng-if="stopLoad==false">
-        </ion-infinite-scroll>
-        
-
-        </div>
-        
-
-        
-      
-      </div>
-
-
-
-      <div class="slideright padding" ng-if="browserStatus.feature" style="z-index:12; background:white;">
-        <div class="card">
-          <div class="row">
-            <div class="col col-66">
-              <h3>
-                <img class="icon-title"  ng-src="{{ browserStatus.feature._icon }}" alt="">
-                {{ browserStatus.feature._title }}
-              </h3>    
-            </div>
-            <div class="col col-33">
-              <button class="button button-calm button-small" ng-click="centerFeature(browserStatus.feature)" style="float:right;">
-                <i class="icon ion-android-location"></i>
-              </button>
-            </div>
-          </div>
-        
-          
-          <div ng-if="getTemplateForLayer(browserStatus.layer)" class="padding">
-            <div ng-include="getTemplateForLayer(browserStatus.layer)">
-              
-            </div>
-          </div>
-          </div>
-
-      </div>
-      
-    
-    
+    <ion-content class="has-header">
+    blah blah blah
      
     </ion-content>
 
 
-    <div class="bar bar-footer bar-positive item-input-inset fader" ng-if="context == 'layer'">
-      <button class="button button-clear" ng-click="clearFilter()">
-          Clear
-        </button>
-
-        <label class="item-input-wrapper">
-        <i class="icon ion-ios7-search placeholder-icon"></i>
-          <input type="search" placeholder="Filter" ng-model="browserStatus.filter">
-        </label>
-        
-        <button class="button button-clear">
-          OK
-        </button>
-    </div>
+    
     
 
 </div>
