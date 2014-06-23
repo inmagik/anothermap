@@ -38,7 +38,7 @@
                 $timeout(function(){
                     $scope.browserStatus.currentService = service;
                     $scope.browserStatus.context = 'service';
-                    $scope.browserStatus.title = $scope.wmsInfo[service].Name;
+                    $scope.browserStatus.title = $scope.wmsInfo[service].Title;
                 })
             };
 
