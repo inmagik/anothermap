@@ -1,14 +1,38 @@
 <div class="modal" ng-controller="BrowserCtrl">
     <ion-header-bar class="bar-positive">
-      <button class="button icon ion-arrow-left-a" ng-if="browserStatus.layer" ng-click="back()"></button>
-      <h1 class="title">{{browserTitle}}</h1>
+      <button class="button icon ion-arrow-left-a" ng-if="browserStatus.currentService" ng-click="toIndex()"></button>
+      <h1 class="title">{{browserStatus.title}}</h1>
       <button class="button icon ion-close-round" ng-click="closeBrowser()"></button>
     </ion-header-bar>
     
 
     
     <ion-content class="has-header">
-    blah blah blah
+      <div class="list slideright" ng-show="!browserStatus.currentService" style="z-index:10">
+        <a href="#" class="item" ng-repeat="item in wmsUrls" ng-click="toService(item)">
+          {{ wmsInfo[item].Title }}
+          <p>
+            {{ wmsInfo[item].Abstract}}<br>
+            {{ wmsInfo[item].OnlineResource}}
+          </p>
+        </a>
+      </div>
+
+      <div class="list slideright" ng-show="browserStatus.currentService" style="z-index:11">
+        <div class="item padding" ng-repeat="item in wmsLayers[browserStatus.currentService]" ng-click="">
+          <h3>{{item.name}}</h3>
+          <div>
+            {{item.abstract}}
+          </div>
+          <p style="float:right;">
+            <button class="button button-positive icon ion-plus-circled" ng-click="addLayer(item)"
+            ng-disabled="layerInMap(item.uid)"></button>
+            <button class="button button-assertive icon ion-minus-circled" ng-click="removeLayer(item)"
+            ng-disabled="!layerInMap(item.uid)"></button>
+          </p>
+
+        </div>
+      </div>
      
     </ion-content>
 

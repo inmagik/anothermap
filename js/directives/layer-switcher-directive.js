@@ -105,6 +105,15 @@
                 };
 
 
+                scope.layerInMap = function(uid){
+                    return layersManager.getLayerConfigById(scope.mapId, uid) != null;
+                };
+
+                scope.toExtent = function(layerContainer){
+                    $rootScope.$broadcast('zoomToLayer', layerContainer);
+                }
+
+
 
 
 

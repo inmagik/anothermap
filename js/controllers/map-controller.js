@@ -123,117 +123,12 @@
         };
 
 
-        var createLayerConfigFromWMS = function(layerInfo, serviceInfo, version){
-            if(!layerInfo.Name){
-                console.error("No name, cannot create wms config", layerInfo);
-                return null;
-            }
-            
-            var crsFound = null;
-            for(var i=0,n=layerInfo.CRS.length;i<n;i++){
-                var crs = layerInfo.CRS[i];
-                if(Proj4js.defs[crs]){
-                    crsFound = crs;
-                    break;
-                }
-            }
-
-            if(!crsFound){
-                console.error("no crs found for wms layer def", layerInfo);
-                return;
-            }
-
-            var url = serviceInfo.OnlineResource;
-            var projection = ol.proj.configureProj4jsProjection({
-              code: crsFound,
-              //extent: [166021.4431, 0.0000, 833978.5569, 9329005.1825]
-            });
-
-            
-            var out= {
-                name :layerInfo.Name,
-                abstract : layerInfo.Abstract,
-                group : 'rasters',
-                layer : new ol.layer.Tile({
-                    visible : false,
-                    source : new ol.source.TileWMS({
-                        url : url,
-                        projection : projection,
-                        params : {
-                            'LAYERS' : layerInfo.Name,
-                            'FORMAT' : 'image/png',
-                            'VERSION' : version,
-                            'SRS' : crsFound,
-                            'CRS' : crsFound
-                        },
-                        //crossOrigin: 'anonymous',
-                        
-                    })
-                }),
-                uiOptions : {}
-            }
-            return out;
-
-
-        }
-
-
-        /* loads a wms configuration and returns a config */
-        var loadWMS = function(url){
-            var d = $q.defer();
-
-            var parser = new ol.format.WMSCapabilities();
-            var out = [];
-
-            $.ajax(url, {async:true}).then(function(response) {
-                var result = parser.read(response);
-                var serviceLayers = result.Capability.Layer.Layer;
-                var serviceInfo = result.Service;
-                var version = result.version;
-
-                _.each(serviceLayers, function(item){
-                    var cfg = createLayerConfigFromWMS(item, serviceInfo, version);
-                    if(cfg){
-                        out.push(cfg);    
-                    }
-                    
-                });
-                d.resolve({data:out, item:url});
-            });
-
-            return d.promise;
-
-        }
+        
 
         var initCustomVectors = function(){
             var d = $q.defer();
             var o  = [];
-            var toLoad = [];
-            var loaded = {}
-            var configs = ['wms_capabilities/ortofoto_2007.xml', 'wms_capabilities/ctr.xml', 'wms_capabilities/fisica.xml', 'wms_capabilities/geologica.xml'];
-
-            var ge = function(){
-                var a=[];
-                _.each(configs, function(item){
-                    a = a.concat(loaded[item]);
-                })
-                return a;
-            }
-            
-            _.each(configs, function(item){
-                toLoad.push(item);
-                loadWMS(item).then(function(data){
-                    loaded[data.item] = data.data;
-                    toLoad = _.reject(toLoad, function(i){return i == data.item;})
-                    if(toLoad.length==0){
-                        var all=ge();
-                        d.resolve(all);
-                    }
-                });
-
-            });
-            
-
+            d.resolve(o);
             return d.promise;
 
             
@@ -251,7 +146,6 @@
                         data.layers = layers;
                         initMap(data);
                         initTour();
-                    
 
                     })
                     
@@ -814,8 +708,23 @@
                 
             };
 
+            $scope.$on('zoomToLayer', function(evt, data){
+                console.log("da", data);
+                var bbox = data.bbox;
+                if(!bbox){
+                    console.error("cannot zoom to layer - no bbox")
+                }
+                var view = $scope.map.getView();
+                var proj = view.getProjection();
+                var extent = ol.proj.transform(bbox.extent, bbox.crs, proj);
+                console.log("sw", bbox, extent, proj)
+                view.fitExtent(extent, $scope.map.getSize() );
+
+            });
+
             //initialization
             $ionicPlatform.ready(function(){
+
                 startFromConfig();    
             });
 
