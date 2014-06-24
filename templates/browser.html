@@ -32,17 +32,17 @@
         <div class="item item-divider">
           Layers
         </div>
-        <div class="item padding" ng-repeat="item in currentLayers" ng-click="">
+        <div class="item item-button-right  padding" ng-repeat="item in currentLayers" ng-click="">
           <h3>{{item.name}}</h3>
           <div>
             {{item.abstract}}
           </div>
-          <p style="float:right;">
+          <div class="buttons">
             <button class="button button-positive icon ion-plus-circled" ng-click="addLayer(item)"
             ng-disabled="layerInMap(item.uid)"></button>
             <button class="button button-assertive icon ion-minus-circled" ng-click="removeLayer(item)"
             ng-disabled="!layerInMap(item.uid)"></button>
-          </p>
+          </div>
 
         </div>
       </div>
