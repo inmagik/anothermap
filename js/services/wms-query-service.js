@@ -31,10 +31,10 @@
             var layers = _.reject(
                 layersManager.layersForMaps[mapId] || [],
                 function(item){
-                    return item.wmsQueryable !== true;
+                    return item.wmsQueryable !== true || item.layer.getVisible() != true;
                 }
             );
-            console.log("candidate layers", layers);
+            
             var que = [];
             var data = {};
 
