@@ -131,6 +131,12 @@
 
             }
 
+
+            if(layerInfo.queryable){
+                out.wmsQueryable = true;
+
+            }
+
             return out;
 
 

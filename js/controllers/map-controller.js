@@ -4,9 +4,9 @@
     angular.module('pocketMap.controllers')
 
     .controller('MapCtrl', ['$scope', '$rootScope', '$q', '$timeout', 'configManager', 'mapConfigService', 'mapsManager','layersManager', 'layersConfigService', 'olGeolocationService', 
-            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService', 'legendsService',
+            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService', 'legendsService', 'wmsQueryService',
         function($scope, $rootScope, $q, $timeout, configManager, mapConfigService,mapsManager,layersManager, layersConfigService, olGeolocationService,
-         $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService,legendsService) {
+         $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService,legendsService, wmsQueryService) {
 
         
         $scope.appInfo = {
@@ -22,8 +22,42 @@
             follow : false,
             lastPosition : null,
             lastHeading : null,
-            locationInExtent : null
+            locationInExtent : null,
         };
+
+        $rootScope.uiControls = {
+            queryWMS : null
+            //reverseGeocode : false
+        };
+
+        $scope.activateQueryWMS = function(){
+            $timeout(function(){
+                $rootScope.uiControls.queryWMS = $scope.map.on('click', function(evt){
+                    console.log("c", evt)
+                    wmsQueryService.queryPoint(evt.coordinate, 'main-map', $scope.map.getView()).then(function(data){
+                        console.log("ddsdsds", data);
+                        showAlert("q", data.formatted);
+                    });
+                });
+
+            });
+        };
+
+        $scope.deactivateQueryWMS = function(){
+            $timeout(function(){
+                $scope.map.unByKey($rootScope.uiControls.queryWMS);
+                $rootScope.uiControls.queryWMS = null;
+            });
+        };
+
+        $scope.toggleQueryWms = function(){
+            if($rootScope.uiControls.queryWMS){
+                $scope.deactivateQueryWMS();
+            } else {
+                $scope.activateQueryWMS();
+            }
+        };
+        
 
         $scope.searchStatus = {
             search : '',
@@ -712,6 +746,9 @@
             $scope.toggleHelp = function(){
                 $scope.helpShown = !$scope.helpShown;
             };
+
+
+
 
 
             var initTour = function(){
