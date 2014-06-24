@@ -7,15 +7,15 @@
         var svc = {};
 
         var formatData = function(d){
-            var out = "";
+            var out = {};
             for(var x in d){
                 var a = d[x].response;
                 var s = a.split("\n")                
                 s = _.reject(s, function(item){return (item == 'GetFeatureInfo results:' || item.replace(" ", "") == "") })
                 var j = "<h4>"+d[x].name+"</h4>" + s.join("<br>");
-                out = out + j;
+                out[x] = "<div>" + j + "</div>";
             }
-            return out;
+            return out
         }
 
         svc.queryPoint = function(point, mapId, view){
@@ -28,6 +28,10 @@
             );
             var que = [];
             var data = {};
+
+            if(layers.length == 0){
+                out.resolve(null);
+            }
 
             _.each(layers, function(item){
                 var l = item.layer;
@@ -50,6 +54,8 @@
                     }
                 });
             });
+
+            
             return out.promise;
 
         };

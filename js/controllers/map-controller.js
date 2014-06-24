@@ -30,18 +30,38 @@
             //reverseGeocode : false
         };
 
+
+        $scope.pointInfo = {
+            position : null,
+            data : null
+        };
+
+
+
         $scope.activateQueryWMS = function(){
             $timeout(function(){
                 $rootScope.uiControls.queryWMS = $scope.map.on('click', function(evt){
                     console.log("c", evt)
                     wmsQueryService.queryPoint(evt.coordinate, 'main-map', $scope.map.getView()).then(function(data){
-                        console.log("ddsdsds", data);
-                        showAlert("q", data.formatted);
+                        $timeout(function(){
+                            console.log("P",data)
+                            if(data){
+                                showMapPopup(evt.coordinate, data)
+                            }
+                            $scope.pointInfo = {
+                                position : evt.coordinate,
+                                data : data
+                            };
+                        })
+                        
                     });
                 });
 
             });
         };
+
+
+
 
         $scope.deactivateQueryWMS = function(){
             $timeout(function(){
@@ -257,10 +277,34 @@
         };
 
         var mapClickHandler = null;
-        var handlePopup = function(pixel, layerName){
-            
+
+
+        var showMapPopup = function(coord, content){
+            $("#main-map").addClass('map-with-console');
+            $("#main-console").addClass('console-open');
+            $scope.closeAllPanels();
+            $scope.map.updateSize();
+            animateCenter(coord);
+            popupOverlay.setPosition(coord);
             var element = document.getElementById('popup');
-            
+            var c = $(".popover-content", $(element));
+            c.empty();
+            $(element).fadeIn()
+        };
+
+
+        $scope.hideMapPopup = function(){
+            $("#main-map").removeClass('map-with-console');
+            $("#main-console").removeClass('console-open');
+            $scope.map.updateSize();
+            var element = document.getElementById('popup');
+            $(element).fadeOut();
+        };
+
+
+
+        var handlePopup = function(pixel, layerName){
+            var element = document.getElementById('popup');
             var candidates = [];
             $scope.map.forEachFeatureAtPixel(pixel,
               function(feature, layer) {
@@ -301,9 +345,6 @@
                     });
                 });
             
-            
-
-            
           } else {
             $(element).fadeOut();
           
@@ -316,15 +357,17 @@
             var element = document.getElementById('popup');
             popupOverlay = new ol.Overlay({
                 element: element,
-                positioning: 'top-center',
-                stopEvent: false
+                positioning: 'center-center',
+                stopEvent: true
             });
             $scope.map.addOverlay(popupOverlay);
 
             // display popup on click
+            /*
             mapClickHandler = $scope.map.on('click', function(evt) {
                 handlePopup(evt.pixel);
             });
+            */
             
         };
 
@@ -443,6 +486,7 @@
             }
         };
 
+
         $scope.stopDeviceOrientation = function(reset){
             olGeolocationService.stopDeviceOrientation();
             //var v = $scope.map.getView();
@@ -471,6 +515,7 @@
             });
         };
 
+
         $scope.stopGeolocation = function(){
             positionLayer.setVisible(false)
             olGeolocationService.stopGeolocation();
@@ -482,6 +527,7 @@
             }
         };
 
+
         $scope.toggleGeolocation = function(){
             if($scope.uiStatus.gps){
                 $scope.stopGeolocation()
@@ -489,6 +535,7 @@
                 $scope.startGeolocation();
             }
         };
+
 
         var followHandler;
         $scope.startFollow = function(){
@@ -509,6 +556,7 @@
             });
         };
 
+
         $scope.stopFollow = function(){
             
             if(followHandler){
@@ -519,6 +567,7 @@
                 $scope.uiStatus.follow = false;
             });
         };
+
 
         $scope.toggleFollow = function(){
 
@@ -548,6 +597,7 @@
             
         };
 
+
         var animateCenter = function(targetCenter){
 
             var v = $scope.map.getView();
@@ -562,6 +612,7 @@
             v.setCenter(targetCenter);
             
         };
+
 
         var animateZoom = function(targetZoom){
 
@@ -595,6 +646,7 @@
 
         };
 
+
         $scope.unlockRotation = function(){
             $scope.map.addInteraction(mapConfigService.interactionsByName["ol.interaction.DragRotate"]);
             $scope.map.addInteraction(mapConfigService.interactionsByName["ol.interaction.PinchRotate"]);
@@ -603,6 +655,7 @@
             });
 
         };
+
 
         $scope.toggleLockRotation = function(){
             if($scope.uiStatus.lockRotate){
@@ -683,7 +736,7 @@
 
 
                     initGeoloc(map);
-                    //createPopupOverlay();
+                    createPopupOverlay();
                     //createHudOverlay();
                     prepareEvents();
 
@@ -748,9 +801,6 @@
             };
 
 
-
-
-
             var initTour = function(){
 
                 if(!window.localStorage.getItem('has_run')) {
@@ -760,6 +810,7 @@
                 }
                 
             };
+
 
             $scope.$on('zoomToLayer', function(evt, data){
                 console.log("da", data);
@@ -775,12 +826,12 @@
 
             });
 
+
             //initialization
             $ionicPlatform.ready(function(){
 
                 startFromConfig();    
             });
-
 
 
     }]);

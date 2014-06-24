@@ -26,6 +26,23 @@
 
     </div>
     <div id="main-map" class="main-map"></div>
+    <div id="main-console" class="main-console">
+      
+        <div class="bar bar-header bar-calm">
+          <h1 class="title">Point info</h1>
+          <button class="button button-small button-assertive icon ion-close" ng-click="hideMapPopup()"></button>
+        </div>
+
+        <div class="console-content padding" id="console-content">
+            {{ pointInfo.position }}
+            <div ng-repeat="(k,v) in pointInfo.data.formatted" ng-bind-html="v">
+              
+            </div>
+        </div>
+
+
+      
+    </div>
 
     <!-- help -->
     <div tour ng-controller="HelpCtrl"></div>
@@ -120,10 +137,18 @@
 
     
     <!-- popover ... #TODO: move to a directive! -->
+    <!--
     <div class="popover hide" id="popup">
       <div class="popover-arrow"></div>
       <div class="popover-content " stop-event="click"></div>
     </div>
+    -->
+
+    <div class="popover2 hide" id="popup">
+      <img src="img/position.png" alt="">
+    </div>
+
+
 
 
     <!--legend ... #TODO: move to a directive! -->
