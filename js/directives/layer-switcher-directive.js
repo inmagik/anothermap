@@ -74,10 +74,10 @@
 
                 var msg = 'layersChange.'+scope.mapId;
                 $rootScope.$on(msg, function(evt,data){
-                    console.log("call refresh")
                     refresh();
                 });
 
+                //first refresh
                 refresh();
 
                 

@@ -691,10 +691,12 @@
 
 
                     //adding base layers
+                    /*
                     _.each(data.baseLayers, function(item){
                         var i = layersManager.createLayerConfigFromJson(item);
                         layersManager.addLayer('main-map', i);
                     });
+                    */
 
 
                     //adding vectors FROM CONFIG
@@ -739,6 +741,10 @@
                     createPopupOverlay();
                     //createHudOverlay();
                     prepareEvents();
+
+                    //broadcasting mapMapready event, will be used by browser
+                    //to load initial layer
+                    $rootScope.$broadcast('mapReady');
 
                     $timeout(function(){
                         $scope.uiStatus.dataLoaded = true;

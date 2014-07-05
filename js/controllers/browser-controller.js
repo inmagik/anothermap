@@ -66,7 +66,7 @@
 
             };
 
-            $scope.mapServicesOrder = ['osm', 'mapquest']
+            $scope.mapServicesOrder = ['osm', 'mapquest'];
 
 
             var wmsUrls = [
@@ -136,9 +136,9 @@
                     $scope.browserStatus.title = svc.title;    
                     $scope.currentLayers = layers;
                     $ionicScrollDelegate.scrollTop();
-                    
-                })
+                });
             };
+
 
             $scope.toIndex = function(service){
                 $timeout(function(){
@@ -146,12 +146,13 @@
                     $scope.browserStatus.context = 'index';
                     $scope.browserStatus.title = 'Services index';
                     $ionicScrollDelegate.scrollTop();
-                })
+                });
             };
+
 
             $scope.layerInMap = function(uid){
                 return layersManager.getLayerConfigById('main-map', uid) != null;
-            }
+            };
 
 
             $scope.addLayer = function(layerConfig){
@@ -159,11 +160,10 @@
                 layerConfig.layer.setVisible(true);
             };
 
+
             $scope.removeLayer = function(layerConfig){
                 layersManager.removeLayer('main-map', layerConfig);
             };
-
-
             
             
             var plainUrls = [];
@@ -203,10 +203,12 @@
 
             wmsService.loadWmsLayers().then(function(data){
                 loadWms(data);
-                
             });
 
-            
+
+            $scope.$on("mapReady", function(){
+                $scope.addLayer($scope.mapLayersData['osm-layers'][0])
+            });
 
 
 
