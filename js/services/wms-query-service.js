@@ -6,6 +6,10 @@
 
         var svc = {};
 
+        function htmlEntities(str) {
+           return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
         var formatData = function(d){
             var out = {};
             for(var x in d){
@@ -14,6 +18,7 @@
                 s = _.reject(s, function(item){return (item == 'GetFeatureInfo results:' || item.replace(" ", "") == "") })
                 var j = "<h4>"+d[x].name+"</h4>" + s.join("<br>");
                 out[x] = "<div>" + j + "</div>";
+                
             }
             return out
         }
@@ -41,15 +46,16 @@
                     point, 
                     view.getResolution(), 
                     view.getProjection(),
-                    {}
+                    { INFO_FORMAT : 'text/plain'}
                 );
                 que.push(url);
                 $.get(url).done(function(response){
-                    data[url] = { response : response, name : n};
+                    data[url] = { response : htmlEntities(response), name : n};
                 }).always(function(){
                     var p = que.indexOf(url);
                     que.splice(p, 1);
                     if(que.length==0){
+
                         out.resolve({data:data, formatted:formatData(data)});
                     }
                 });
