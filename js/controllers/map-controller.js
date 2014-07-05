@@ -223,41 +223,7 @@
 
         /* geoloc stuff -- move away */
         var positionLayer = null;
-
-
-        var createPositionLayer = function(map){
-            var posimg;
-
-            var vectorSource = new ol.source.Vector({});
-            
-            posimg = new ol.style.Icon({
-                anchor: [0.5, 0.5],
-                anchorXUnits: 'fraction',
-                anchorYUnits: 'fraction',
-                //opacity: 0.75,
-                //size : 10,
-                src: 'img/position.png',
-                rotateWithView:false
-            });
-
-            var iconStyle = new ol.style.Style({
-              image: posimg,
-              zIndex : 1000
-            });            
-            
-            var out = new ol.layer.Vector({
-                source: vectorSource,
-                style : iconStyle,
-                visible : true
-            });
-            
-
-            
-
-            return out;
-        };
-
-
+        var positionFeature = new ol.Feature();
         var hudOverlay;
         var popupOverlay;
 
@@ -374,30 +340,33 @@
 
         var updatePositionLayer = function(coordsm){
 
-
-            var features = positionLayer.getSource().getFeatures()
-            
-            if(features.length){
-                features[0].setGeometry(new ol.geom.Point(coordsm));
-
-            } else {
-                var positionFeature = new ol.Feature({
-                    geometry: new ol.geom.Point(coordsm),
-                    name: 'Your position'
-                });
-                var s  = positionLayer.getSource();
-                s.addFeature(positionFeature);
-            
-            }
-            
+            var features = positionLayer.getFeatures();
+            var f = features.item(0);
+            f.setGeometry(new ol.geom.Point(coordsm));
+            return;
         };
         
         
         var initGeoloc = function(map){
 
-            positionLayer = createPositionLayer(map);
-            var cfg = { name : "geolocation", layer:positionLayer };
-            layersManager.addLayer('main-map', cfg);
+            var positionStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    src: 'img/position.png',
+                    anchor: [0.5, 0.5],
+                    anchorXUnits: 'fraction',
+                    anchorYUnits: 'fraction',
+                    opacity: 1,
+                    size : [32,32]
+                })
+            });
+            
+            positionLayer = new ol.FeatureOverlay({
+                map: map,
+                features: [],
+                style : positionStyle
+
+            });
+            
 
 
             olGeolocationService.geolocationControl.on('change', 
@@ -508,7 +477,8 @@
 
 
         $scope.startGeolocation = function(){
-            positionLayer.setVisible(true)
+            //positionLayer.setVisible(true)
+            positionLayer.addFeature(positionFeature);
             olGeolocationService.startGeolocation();
             $timeout(function(){
                 $scope.uiStatus.gps = true;
@@ -517,7 +487,8 @@
 
 
         $scope.stopGeolocation = function(){
-            positionLayer.setVisible(false)
+            //positionLayer.setVisible(false)
+            positionLayer.removeFeature(positionFeature);
             olGeolocationService.stopGeolocation();
             $timeout(function(){
                 $scope.uiStatus.gps = false;
@@ -737,7 +708,7 @@
 
 
 
-                    //initGeoloc(map);
+                    initGeoloc(map);
                     createPopupOverlay();
                     //createHudOverlay();
                     prepareEvents();
