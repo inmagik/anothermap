@@ -735,7 +735,7 @@
 
 
 
-                    initGeoloc(map);
+                    //initGeoloc(map);
                     createPopupOverlay();
                     //createHudOverlay();
                     prepareEvents();

@@ -15,23 +15,25 @@
                 }
 
 
+                scope.sortableList = {}
+
+
                 scope.sortableOptions = {
                     start: function(e, ui) {
                        // creates a temporary attribute on the element with the old index
-                       
                         $(ui.item).attr('data-previndex', ui.item.index());
-                        console.log(ui.item.index())
+                        //console.log(ui.item.index())
                     },
                     stop: function(e, ui) {
                         // gets the new and old index then removes the temporary attribute
                         var newIndex = ui.item.index();
                         var oldIndex = $(ui.item).attr('data-previndex');
-                        console.log("newIndex", newIndex, oldIndex)
+                        //console.log("newIndex", newIndex, oldIndex)
                         $(this).removeAttr('data-previndex');
                         layersManager.setLayerPosition(scope.mapId, oldIndex, newIndex);
                     },
                     axis: 'y',
-                    handle : '.handle'
+                    //handle : '.handle'
                 };
 
 
@@ -72,6 +74,7 @@
 
                 var msg = 'layersChange.'+scope.mapId;
                 $rootScope.$on(msg, function(evt,data){
+                    console.log("call refresh")
                     refresh();
                 });
 

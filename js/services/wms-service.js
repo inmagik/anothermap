@@ -54,7 +54,7 @@
 
         svc.createLayerConfigFromWMS = function(layerInfo, serviceInfo, version){
 
-            console.log("aaaa", layerInfo)
+            //console.log("aaaa", layerInfo)
             if(!layerInfo.Name){
                 console.error("No name, cannot create wms config", layerInfo);
                 return null;
@@ -70,7 +70,7 @@
             }
 
             if(!crsFound){
-                console.error("no crs found for wms layer def. assuming wgs84", layerInfo);
+                //console.error("no crs found for wms layer def. assuming wgs84", layerInfo);
                 crsFound = "EPSG:4326";
                 //return;
             }

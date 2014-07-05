@@ -2,10 +2,9 @@
 <div class="panel panel-info">
     
     <div ng-repeat="layerGroup in groupedLayers">
-        <div class="list layers-list" ui-sortable="sortableOptions">
-        <div class="item item-button-left item-button-right transparent" ng-repeat="layer in layerGroup.layers">
+        <div class="list layers-list" ui-sortable="sortableOptions" ng-model="layerGroup.layers">
+        <div class="item item-button-left item-button-right transparent handle" ng-repeat="layer in layerGroup.layers">
             <!--<img class="icon-title" ng-src="{{ getLayerIcon(layer.name) }}" alt=""> 
-            
             -->
             
             <!--<button class="button icon ion-arrow-expand" ng-click="toExtent(layer)"></button>-->
@@ -33,5 +32,6 @@
       
 
 
+</div>
 </div>
     
