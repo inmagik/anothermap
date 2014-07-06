@@ -351,7 +351,7 @@
 
             var positionStyle = new ol.style.Style({
                 image: new ol.style.Icon({
-                    src: 'img/position.png',
+                    src: 'img/position2.png',
                     anchor: [0.5, 0.5],
                     anchorXUnits: 'fraction',
                     anchorYUnits: 'fraction',
