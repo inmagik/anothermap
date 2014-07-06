@@ -70,20 +70,59 @@
         <button class="button button-small button-positive" ng-click="togglePanel('legend')" ng-class="{'button-assertive' : panels['legend'] == true }">Legend
         </button>
 
+        <button class="button button-small button-positive" ng-click="togglePanel('drawer', true)" ng-class="{'button-assertive' : panels['drawer'] == true }">Saved
+        </button>
+
         <button class="button button-small button-positive" ng-click="toggleQueryWms()" ng-class="{'button-assertive' : uiControls.queryWMS != null }">WMS query
         </button>
+
+
+
+
       
     </div>
 
     <div class="layers-browser transparent-box aa" ng-if="panels.layers" >
       <div class="padding">
         <h4 class="layer-switcher-title"><i class="icon ion-map"></i> Map Layers</h4>
+        <button class="button button-positive" ng-click="dumpMap()">Save</button>
         <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="togglePanel('layers')"></button>
 
           <div class="layer-switcher" map-id="main-map" groups="rasters" >
           </div>
       </div>
     </div>
+
+
+    <div class="layers-browser transparent-box aa" ng-if="panels.drawer" >
+      <div class="padding">
+        <h4 class="layer-switcher-title"><i class="icon ion-map"></i> Saved Maps</h4>
+        <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="togglePanel('drawer')"></button>
+
+          <div class="list layers-list">
+          <div class="item item-button-right transparent handle" ng-repeat="map in savedMaps">
+
+            {{map.name }}
+            
+            <div class="buttons">
+              <button class="button button-positive icon ion-code-download" ng-click="loadSavedMap(map.data)"></button>
+            
+            </div>
+
+
+        </div>
+
+        
+
+    </div>
+
+
+      </div>
+    </div>
+
+
+
+
 
     <!--move to directive -->
     <div class="search-panel transparent-box aa" ng-if="panels.search" ng-controller="SearchCtrl">

@@ -4,9 +4,9 @@
     angular.module('pocketMap.controllers')
 
     .controller('MapCtrl', ['$scope', '$rootScope', '$q', '$timeout', 'configManager', 'mapConfigService', 'mapsManager','layersManager', 'layersConfigService', 'olGeolocationService', 
-            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService', 'legendsService', 'wmsQueryService',
+            '$ionicModal', 'popupManager', 'indexService', '$ionicPopup', '$ionicPlatform', 'iconsService', 'legendsService', 'wmsQueryService', 'persistenceService',
         function($scope, $rootScope, $q, $timeout, configManager, mapConfigService,mapsManager,layersManager, layersConfigService, olGeolocationService,
-         $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService,legendsService, wmsQueryService) {
+         $ionicModal,popupManager, indexService, $ionicPopup, $ionicPlatform, iconsService,legendsService, wmsQueryService, persistenceService) {
 
         
         $scope.appInfo = {
@@ -23,6 +23,7 @@
             lastPosition : null,
             lastHeading : null,
             locationInExtent : null,
+            newMapName : null
         };
 
         $rootScope.uiControls = {
@@ -35,6 +36,9 @@
             position : null,
             data : null
         };
+
+
+        $scope.savedMaps = {};
 
 
 
@@ -178,6 +182,9 @@
         };
 
 
+
+
+
         //legend stuff
         $scope.currentLegends = [];
         $scope.removeLegend = function(legend){
@@ -192,7 +199,7 @@
 
 
         
-
+        //hook to load custom vectors at startup. not used right now
         var initCustomVectors = function(){
             var d = $q.defer();
             var o  = [];
@@ -202,7 +209,9 @@
             
         }
 
-        
+        //json config loader
+        //expects configuration in config/config.json
+        //#TODO: write config specs
         var startFromConfig = function(){
             configManager.getConfig('config/config.json')
                 .then(function(data){
@@ -550,6 +559,10 @@
         };
 
 
+
+
+
+        //animation helpers
         var animateRotate = function(targetRotation){
 
             var v = $scope.map.getView();
@@ -599,6 +612,7 @@
             v.setZoom(targetZoom);
             
         };
+
 
 
         $scope.lockRotation = function(){
@@ -788,6 +802,52 @@
                 
             };
 
+            // serialization
+
+            $scope.dumpMap = function(){
+
+              var myPopup = $ionicPopup.show({
+                template: '<input type="text" ng-model="uiStatus.newMapName">',
+                title: 'Save map',
+                subTitle: 'Please enter a name for this map',
+                scope: $scope,
+                buttons: [
+                  { text: 'Cancel' },
+                  {
+                    text: '<b>Save</b>',
+                    type: 'button-positive',
+                    onTap: function(e) {
+                      if (!$scope.uiStatus.newMapName) {
+                        //don't allow the user to close unless he enters wifi password
+                        e.preventDefault();
+                      } else {
+                        return $scope.uiStatus.newMapName;
+                      }
+                    }
+                  },
+                ]
+              });
+              myPopup.then(function(res) {
+                console.log('Tapped!', res);
+                if(!res){
+                    return;
+                }
+                var data = persistenceService.dumpMap('main-map');
+                persistenceService.saveMap(data, $scope.uiStatus.newMapName);
+
+              });
+                
+            };
+
+
+            $scope.loadSavedMap = function(data){
+                console.log("jjj", data);
+                $rootScope.$broadcast('browserLoadMap', data);
+            }
+
+
+
+             
 
             $scope.$on('zoomToLayer', function(evt, data){
                 console.log("da", data);
@@ -804,10 +864,21 @@
             });
 
 
+            $scope.$on('savedMapsLoaded', function(evt, data){
+                $timeout(function(){
+                    $scope.savedMaps = data;
+                })
+
+            });
+
+
+
+
             //initialization
             $ionicPlatform.ready(function(){
+                startFromConfig();   
+                persistenceService.getMaps();
 
-                startFromConfig();    
             });
 
 

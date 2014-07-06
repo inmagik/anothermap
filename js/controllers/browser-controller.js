@@ -156,6 +156,9 @@
 
 
             $scope.addLayer = function(layerConfig){
+                if($scope.layerInMap(layerConfig.uid)){
+                    return;
+                }
                 layersManager.addLayer('main-map', layerConfig);
                 layerConfig.layer.setVisible(true);
             };
@@ -164,6 +167,9 @@
             $scope.removeLayer = function(layerConfig){
                 layersManager.removeLayer('main-map', layerConfig);
             };
+
+
+            
             
             
             var plainUrls = [];
@@ -209,6 +215,26 @@
             $scope.$on("mapReady", function(){
                 $scope.addLayer($scope.mapLayersData['osm-layers'][0])
             });
+
+
+            $scope.$on('browserLoadMap', function(evt,data){
+                layersManager.clearLayers('main-map');
+                _.each(data.layers, function(item){
+                    var candidate=null;
+                    for(var d in $scope.mapLayersData){
+                        var dd = $scope.mapLayersData[d];
+                        candidate = _.findWhere(dd, item);
+                        if(candidate){
+                            $scope.addLayer(candidate)             
+                            break;
+                        }
+                    }
+                    if(!candidate){
+                        console.log("cannot find layer for", item)
+                    }
+
+                });
+            })
 
 
 
