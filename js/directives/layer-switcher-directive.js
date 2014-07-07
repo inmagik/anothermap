@@ -100,6 +100,11 @@
                 };
 
                 scope.removeLayer = function(layerContainer){
+                    if(layerContainer.legendUrl){
+                        if(legendsService.hasLegend(layerContainer.legendUrl)){
+                            legendsService.removeLegend(layerContainer.legendUrl);
+                        }
+                    }
                     layersManager.removeLayer(scope.mapId, layerContainer);
                 };
 

@@ -8,7 +8,7 @@
 
     
     <ion-header-bar  class="bar-positive">
-        <button class="button icon ion-information-circled" ng-click="openModal()"></button>        
+        <button class="button icon ion-information" ng-click="openModal()"></button>        
         <h1 class="title">{{appInfo.title}}</h1>
         <button class="button icon ion-help" ng-click="toggleHelp()"></button>
     </ion-header-bar>
@@ -28,9 +28,9 @@
     <div id="main-map" class="main-map"></div>
     <div id="main-console" class="main-console">
       
-        <div class="bar bar-header bar-calm">
+        <div class="bar bar-header bar-positive">
           <h1 class="title">Point info</h1>
-          <button class="button button-small button-assertive icon ion-close" ng-click="hideMapPopup()"></button>
+          <button class="button button-positive icon ion-close" ng-click="hideMapPopup()"></button>
         </div>
 
         <div class="console-content padding" id="console-content">
@@ -57,24 +57,25 @@
         </button>
         <button class="button button-small button-positive icon ion-arrow-up-c" ng-click="toggleLockRotation()" ng-class="{'button-assertive' : uiStatus.lockRotate == true }">
         </button>
+
     </div>
 
     <!-- lower toolbar -->
     <div class="bottom-toolbar">
         <button class="button button-small button-positive icon ion-map" ng-click="togglePanel('layers', true)" ng-class="{'button-assertive' : panels['layers'] == true }">
         </button>
-        <button class="button button-small button-positive icon ion-navicon" ng-click="openBrowser()">
+
+        <!--<button class="button button-small button-positive icon ion-navicon" ng-click="openBrowser()">
         </button>
+        -->
         <button class="button button-small button-positive icon ion-search" ng-click="togglePanel('search', true)" ng-class="{'button-assertive' : panels['search'] == true }">
         </button>
-        <button class="button button-small button-positive" ng-click="togglePanel('legend')" ng-class="{'button-assertive' : panels['legend'] == true }">Legend
-        </button>
-
+        <!--
         <button class="button button-small button-positive" ng-click="togglePanel('drawer', true)" ng-class="{'button-assertive' : panels['drawer'] == true }">Saved
         </button>
+        -->
 
-        <button class="button button-small button-positive" ng-click="toggleQueryWms()" ng-class="{'button-assertive' : uiControls.queryWMS != null }">WMS query
-        </button>
+        <button class="button button-small button-positive icon ion-ios7-information" ng-disabled="!hasQueryableWMS()" ng-click="toggleQueryWms()" ng-class="{'button-assertive' : uiControls.queryWMS != null }"></button>
 
 
 
@@ -85,8 +86,22 @@
     <div class="layers-browser transparent-box aa" ng-if="panels.layers" >
       <div class="padding">
         <h4 class="layer-switcher-title"><i class="icon ion-map"></i> Map Layers</h4>
-        <button class="button button-positive" ng-click="dumpMap()">Save</button>
+
         <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="togglePanel('layers')"></button>
+        <div class="padding">
+          <div class="pull-left">
+            <button class="button button-small button-positive icon ion-plus-circled" ng-click="openBrowser()"></button>
+          </div>
+
+          <div class="pull-right">
+            <button class="button button-small button-positive" ng-click="dumpMap()">Save</button>
+            <button class="button button-small button-positive" ng-click="openDrawer()">Load</button>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+
+        
 
           <div class="layer-switcher" map-id="main-map" groups="rasters" >
           </div>
@@ -191,20 +206,15 @@
 
 
     <!--legend ... #TODO: move to a directive! -->
-    <div class="legend-panel aa" ng-if="panels.legend">
+    <div class="legend-panel aa" ng-if="currentLegends.length">
       <div class="padding">
       <h3>Legends</h3>
-      <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="togglePanel('legend')"></button>
-      <p ng-if="currentLegends.length==0" class="text-center">
-        No legends to show.
-      </p>
+      <button class="button button-small button-assertive icon ion-close layer-switcher-close" ng-click="removeAllLegends()"></button>
       <div ng-repeat="legend in currentLegends" class="legend-panel-inner">
         <h4>{{legend.title}}</h4>
         <button class="button button-assertive button-small" ng-click="removeLegend(legend)">Remove</button>
         <br>
         <img ng-src="{{legend.url}}" alt="">
-        
-        
         <hr>
       </div>
       </div>

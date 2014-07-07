@@ -41,14 +41,16 @@
         $scope.savedMaps = {};
 
 
+        $scope.hasQueryableWMS = function(){
+            var l = wmsQueryService.queriableLayers('main-map');
+            return l.length > 0;
+        };
 
         $scope.activateQueryWMS = function(){
             $timeout(function(){
                 $rootScope.uiControls.queryWMS = $scope.map.on('click', function(evt){
-                    console.log("c", evt)
                     wmsQueryService.queryPoint(evt.coordinate, 'main-map', $scope.map.getView()).then(function(data){
                         $timeout(function(){
-                            console.log("P",data)
                             if(data){
                                 showMapPopup(evt.coordinate, data)
                             }
@@ -64,15 +66,14 @@
             });
         };
 
-
-
-
         $scope.deactivateQueryWMS = function(){
             $timeout(function(){
                 $scope.map.unByKey($rootScope.uiControls.queryWMS);
                 $rootScope.uiControls.queryWMS = null;
             });
         };
+
+        $scope.$watch(function(){return $scope.hasQueryableWMS()}, function(nv){if(!nv && $rootScope.uiControls.queryWMS)  $scope.deactivateQueryWMS ();}, true);
 
         $scope.toggleQueryWms = function(){
             if($rootScope.uiControls.queryWMS){
@@ -189,12 +190,21 @@
         $scope.currentLegends = [];
         $scope.removeLegend = function(legend){
             legendsService.removeLegend(legend);
+        };
+
+
+        $scope.removeAllLegends = function(){
+            legendsService.removeAllLegends();
         }
+
         $scope.$on('legendsChanged', function(nv){
             $timeout(function(){
                 $scope.currentLegends = legendsService.legends;
             });
         })
+
+
+
 
 
 

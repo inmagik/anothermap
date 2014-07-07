@@ -32,6 +32,10 @@
             }
         };
 
+        svc.removeAllLegends = function(){
+            svc.legends = [];
+            $rootScope.$broadcast('legendsChanged');
+        };
 
 
     

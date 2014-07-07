@@ -23,14 +23,23 @@
             return out
         }
 
-        svc.queryPoint = function(point, mapId, view){
-            var out = $q.defer();
+
+        svc.queriableLayers = function(mapId){
             var layers = _.reject(
                 layersManager.layersForMaps[mapId] || [],
                 function(item){
                     return item.wmsQueryable !== true || item.layer.getVisible() != true;
                 }
             );
+
+            return layers;
+
+        }
+
+
+        svc.queryPoint = function(point, mapId, view){
+            var out = $q.defer();
+            var layers = svc.queriableLayers(mapId);
             var que = [];
             var data = {};
 
