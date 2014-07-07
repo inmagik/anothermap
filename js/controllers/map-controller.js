@@ -147,9 +147,33 @@
         };
 
 
+
+        //drawer modal
+        $ionicModal.fromTemplateUrl('templates/drawer.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.drawer = modal;
+
+        });
+
+        $scope.openDrawer  = function() {
+            $scope.drawer.show();
+        };
+
+        $scope.closeDrawer = function() {
+            $scope.drawer.hide();
+        };
+
+
+
+
+
+
         //Cleanup the modal when we're done with it!
         $scope.$on('$destroy', function() {
             $scope.modal.remove();
+            $scope.browser.remove();
         });
 
 
