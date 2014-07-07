@@ -1,0 +1,31 @@
+<div class="modal">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">Saved maps</h1>
+      <button class="button icon ion-close-round" ng-click="closeDrawer()"></button>
+    </ion-header-bar>
+    <ion-content>
+    <div class="padding">
+
+      <h4 class="layer-switcher-title"><i class="icon ion-map"></i> Saved Maps</h4>
+        
+          <div class="list ">
+          <div class="item item-button-right handle" ng-repeat="map in savedMaps">
+
+            {{map.name }}
+            
+            <div class="buttons">
+              <button class="button button-positive icon ion-code-download" ng-click="loadSavedMap(map.data)"></button>
+            
+            </div>
+
+
+        </div>
+      
+
+
+    
+    </div>
+    </ion-content>
+    
+
+</div>

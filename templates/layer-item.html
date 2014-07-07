@@ -1,0 +1,8 @@
+<div>
+    {{layer.name }} <br>
+    {{layer.abstract }}
+
+    <div ng-repeat="attribution in attributions">
+        <div ng-bind-html="attribution"></div>
+    </div>
+</div>

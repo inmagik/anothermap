@@ -28,6 +28,39 @@
                 });
             }
         };
+     })
+
+
+    .directive('layerItem', function ($timeout) {
+        return {
+            restrict: 'A',
+            templateUrl : 'templates/layer-item.html',
+            scope : { layer : "="},
+            link: function (scope, element, attr) {
+
+                scope.$watch('layer', function(){
+                    scope.attributions = [];
+                    
+                    var s = scope.layer.layer.getSource();
+                    var attributions = s.attributions_ || [];
+                    _.each(attributions, function(item){
+                        $timeout(function(){
+                            scope.attributions.push(item.getHTML())
+                            console.log("s", scope.attributions)
+                        });
+                    });
+                });
+
+                scope.getAttributions = function(){
+                    var o= "<div>" + "".join(scope.attributions) +"</div>"
+                    console.log("0",o)
+                    return o;
+                }
+
+
+
+            }
+        };
      });
     
 

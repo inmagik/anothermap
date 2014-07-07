@@ -12,14 +12,18 @@
                 ng-class="{'button-energized' : hasLegend(layer.legendUrl) == true}"
                 >L</button>
 
-            {{layer.name }} <br>
-            {{layer.abstract }}
+            
+
+            <div layer-item layer="layer">
+                
+            </div>
+
             <div class="buttons">
-            <button class="button button-calm" ng-click="setVisible(layer)" ng-class="{'button-energized' : isVisible(layer) == true}">
-                <i class="icon" ng-class="{'ion-eye' : isVisible(layer) == true, 'ion-eye-disabled' : isVisible(layer) == false}"></i>
-            </button>
-            <button class="button button-assertive icon ion-minus-circled" ng-click="removeLayer(layer)"
-            ng-disabled="!layerInMap(layer.uid)"></button>
+                <button class="button button-calm" ng-click="setVisible(layer)" ng-class="{'button-energized' : isVisible(layer) == true}">
+                    <i class="icon" ng-class="{'ion-eye' : isVisible(layer) == true, 'ion-eye-disabled' : isVisible(layer) == false}"></i>
+                </button>
+                <button class="button button-assertive icon ion-minus-circled" ng-click="removeLayer(layer)"
+                ng-disabled="!layerInMap(layer.uid)"></button>
             </div>
 
 
