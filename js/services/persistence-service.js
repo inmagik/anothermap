@@ -39,17 +39,15 @@
                 })
 
             });
-            console.log("out", out);
+            
             return out;
         };
 
 
         svc.saveMap = function(mapData, mapName){
-            console.log("saveing", mapData, mapName);
             var uid = generateUid();
             var doc = { _id:uid, name:mapName, data:mapData };
             forcePut(svc.savedMaps, doc).then(function(response){
-                console.log("xxx", response);
                 svc.getMaps();
             })
 
@@ -63,6 +61,17 @@
                 $rootScope.$broadcast("savedMapsLoaded", d);
                 
             })
+        };
+
+
+        svc.getLastMapConfig = function(){
+            var i =  window.localStorage.getItem('lastMapConfiguration');
+            if(!i) return null;
+            return JSON.parse(i);
+        };
+
+        svc.setLastMapConfig = function(data){
+            return window.localStorage.setItem('lastMapConfiguration', JSON.stringify(data));
         };
 
         /*

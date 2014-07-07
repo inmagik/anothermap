@@ -3,8 +3,8 @@
 
     angular.module('pocketMap.controllers')
 
-    .controller('BrowserCtrl', ['$scope', '$timeout', '$rootScope','wmsService', 'osmLayersService', 'mapquestLayersService', 'layersManager',  '$ionicScrollDelegate', '$q',
-        function($scope, $timeout, $rootScope, wmsService, osmLayersService, mapquestLayersService, layersManager, $ionicScrollDelegate, $q) {
+    .controller('BrowserCtrl', ['$scope', '$timeout', '$rootScope','wmsService', 'osmLayersService', 'mapquestLayersService', 'layersManager',  '$ionicScrollDelegate', '$q', 'persistenceService',
+        function($scope, $timeout, $rootScope, wmsService, osmLayersService, mapquestLayersService, layersManager, $ionicScrollDelegate, $q, persistenceService) {
 
         
             
@@ -213,7 +213,18 @@
 
 
             $scope.$on("mapReady", function(){
-                $scope.addLayer($scope.mapLayersData['osm-layers'][0])
+                var cfg = persistenceService.getLastMapConfig();
+                if(cfg){
+                    console.log("cfg found", cfg)
+                    if(cfg.layers){
+                        $rootScope.$broadcast('browserLoadMap', cfg);
+                        return;
+                    }
+                } 
+                
+                $scope.addLayer($scope.mapLayersData['osm-layers'][0])    
+                
+                
             });
 
 

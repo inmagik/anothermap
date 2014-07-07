@@ -875,12 +875,17 @@
 
 
             $scope.loadSavedMap = function(data){
-                console.log("jjj", data);
+             
                 $rootScope.$broadcast('browserLoadMap', data);
             }
 
-
-
+            //autosaving of last config
+            $scope.$on('layersChange.main-map', function(evt, data){
+                var data = persistenceService.dumpMap('main-map');
+                if(data.layers.length){
+                    persistenceService.setLastMapConfig(data);
+                }
+            });
              
 
             $scope.$on('zoomToLayer', function(evt, data){
